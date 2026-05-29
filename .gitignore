@@ -1,0 +1,41 @@
+.DS_Store
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private user workspaces
+/profile/
+/tasks/
+/daily/
+/projects/
+/ideas/
+/knowledge/
+/private/
+/private-*/
+/local/
+/workspace/
+/my-lumina/
+/personal/
+/maintainers/
+/research/
+/research-output/
+
+# Logs and generated output
+logs/
+*.log
+tmp/
+temp/
+
+# Tool caches
+.cache/
+.codex/
+.claude/
+
+# OS and editor files
+.idea/
+.vscode/
