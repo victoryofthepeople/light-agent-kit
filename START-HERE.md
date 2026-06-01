@@ -1,17 +1,17 @@
 # Start Here
 
-Use this page when you want an AI agent to set up Lumina for you.
+Use this page when you want an AI agent to set up Light Agent Kit for you.
 
 ## Agent Instruction
 
-If you are an AI agent reading this because a user pasted the Lumina repo link, start onboarding. Ask one question at a time, build the private workspace as you go, run capability discovery, and finish with one useful action.
+If you are an AI agent reading this because a user pasted the Light Agent Kit repo link, start onboarding. Ask one question at a time, build the private workspace as you go, run capability discovery, and finish with one useful action.
 
 ## Fast Start
 
 Paste the GitHub link into your AI agent and say:
 
 ```text
-Onboard me with Lumina.
+Onboard me with Light Agent Kit.
 ```
 
 That should be enough for a capable agent. The repo tells it what to read, what to build, what to ask, and how to keep your private workspace separate from the public kit.
@@ -21,7 +21,7 @@ That should be enough for a capable agent. The repo tells it what to read, what 
 Use this shorter fallback:
 
 ```text
-Use this repo as Lumina Agent Kit.
+Use this repo as Light Agent Kit.
 Read START-HERE.md first.
 Onboard me one question at a time.
 Build my private workspace as we go.
@@ -33,9 +33,9 @@ End by doing one useful thing.
 Use this only if the agent does not infer the setup from the repo:
 
 ```text
-Onboard me with Lumina Agent Kit.
+Onboard me with Light Agent Kit.
 
-Create my private Lumina workspace as we talk.
+Create my private Light Agent Kit workspace as we talk.
 Ask one question at a time.
 Build the files as I answer.
 Use skills/workspace-builder.md if you can edit files.

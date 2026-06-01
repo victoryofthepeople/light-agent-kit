@@ -18,7 +18,7 @@ Maya runs a design studio and wants the assistant to keep projects, client follo
 
 ## What The Assistant Can Do Now
 
-- Read the Lumina workspace.
+- Read the Light Agent Kit workspace.
 - Capture inbound phone notes into the workspace.
 - Read calendar titles and meeting times.
 - Draft client follow-ups for review.

@@ -1,6 +1,6 @@
 # Templates
 
-These are blank workspace files for your private Lumina workspace.
+These are blank workspace files for your private Light Agent Kit workspace.
 
 Copy the files you need, then fill them in with your assistant during onboarding.
 

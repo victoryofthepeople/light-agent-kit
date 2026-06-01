@@ -2,7 +2,7 @@
 
 Fictional example.
 
-This shows the shape of a good Lumina onboarding. It is short, warm, and useful. The assistant asks one question, writes as it learns, and explains capability only when it helps the next step.
+This shows the shape of a good Light Agent Kit onboarding. It is short, warm, and useful. The assistant asks one question, writes as it learns, and explains capability only when it helps the next step.
 
 ## Opening
 

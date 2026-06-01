@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Create the user's private Lumina workspace from the kit without mixing public templates, private notes, and build notes.
+Create the user's private Light Agent Kit workspace from the kit without mixing public templates, private notes, and build notes.
 
 Use this when the assistant can edit files directly.
 
 ## Use When
 
-- The user says "install Lumina," "set this up," "onboard me," or "build my workspace."
+- The user says "install Light Agent Kit," "set this up," "onboard me," or "build my workspace."
 - The agent is running in Codex, Claude Code, or another file-editing runtime.
 - The user wants a private workspace instead of chat-only drafts.
 

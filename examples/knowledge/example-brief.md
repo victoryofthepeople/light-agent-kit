@@ -4,7 +4,7 @@ Fictional example.
 
 ---
 title: "Assistant Permission Notes"
-author: "Lumina Example"
+author: "Light Agent Kit Example"
 type: note
 tags: [permissions, safety, onboarding]
 concepts: [assistant-permissions]

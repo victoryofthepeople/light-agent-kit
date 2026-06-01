@@ -1,6 +1,6 @@
 # Runtime Decision Guide
 
-Lumina gives a strong agent a readable workspace first, then can grow into stronger runtimes when the use case asks for it.
+Light Agent Kit gives a strong agent a readable workspace first, then can grow into stronger runtimes when the use case asks for it.
 
 Use this guide to choose the next power layer.
 
@@ -28,7 +28,7 @@ Add stronger runtime power when the user needs:
 
 Best when:
 
-- You are setting up Lumina for the first time.
+- You are setting up Light Agent Kit for the first time.
 - You want a profile, goals, tasks, lessons, and skills.
 - You are still learning what you want the agent to do.
 
@@ -50,7 +50,7 @@ Best when:
 
 Good first wins:
 
-- Create your private Lumina workspace.
+- Create your private Light Agent Kit workspace.
 - Improve project docs.
 - Build the first useful skill.
 - Review the assistant's memory and permission files.

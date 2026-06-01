@@ -56,7 +56,7 @@ Always ask before:
 
 ## Skill Access
 
-Default access for the skills shipped with Lumina. Tighten or loosen during onboarding.
+Default access for the skills shipped with Light Agent Kit. Tighten or loosen during onboarding.
 
 | Skill | Access level | Approval needed |
 | --- | --- | --- |

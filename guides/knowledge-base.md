@@ -1,6 +1,6 @@
 # Knowledge Base
 
-Lumina can start with simple notes. When your notes become important enough to reuse, turn them into a living knowledge base.
+Light Agent Kit can start with simple notes. When your notes become important enough to reuse, turn them into a living knowledge base.
 
 The goal is practical memory you can trust.
 
@@ -22,7 +22,7 @@ Good for:
 - Links you want to remember.
 - Questions to revisit.
 
-### Lumina Wiki
+### Light Agent Kit Wiki
 
 Use this when the assistant needs durable knowledge across sources.
 

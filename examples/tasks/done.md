@@ -4,7 +4,7 @@ Fictional example.
 
 ## 2026-01-01
 
-- Created the first Lumina workspace.
+- Created the first Light Agent Kit workspace.
 - Chose communication style and approval gates.
 - Captured active portfolio tasks.
 

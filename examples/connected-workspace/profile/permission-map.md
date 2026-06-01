@@ -61,7 +61,7 @@ Always ask before:
 | --- | --- | --- |
 | Phone capture channel | inbound capture only | assistant can read messages sent to the capture channel |
 | Calendar | read-only | event titles, times, and attendees only |
-| Local Lumina workspace | write with approval; quiet safe updates | no writes outside the workspace |
+| Local Light Agent Kit workspace | write with approval; quiet safe updates | no writes outside the workspace |
 | Scheduler runtime | limited automation | morning brief and Friday review only |
 | Email | no access | next possible activation is read-only triage |
 

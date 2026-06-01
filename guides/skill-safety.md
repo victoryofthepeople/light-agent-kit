@@ -48,7 +48,7 @@ Before enabling one:
 - Keep secrets out of prompts and logs.
 - Start in a private test workspace.
 
-## Lumina Rule
+## Light Agent Kit Rule
 
 The assistant should explain what a skill can access before recommending it.
 

@@ -2,14 +2,14 @@
 
 ## Purpose
 
-Connect Lumina to another folder, vault, repo, client brain, or business knowledge base as a source of truth.
+Connect Light Agent Kit to another folder, vault, repo, client brain, or business knowledge base as a source of truth.
 
 This is the public-safe version of a pattern many real systems use: one assistant workspace can reference another organized brain without copying all of it into memory.
 
 ## Use When
 
 - The user already has an Obsidian vault, client folder, business brain, project repo, or personal OS.
-- The user asks about work whose source of truth lives outside the Lumina workspace.
+- The user asks about work whose source of truth lives outside the Light Agent Kit workspace.
 - A project, client, or team has its own files that should override stale chat memory.
 - The assistant needs a read protocol before touching an external knowledge source.
 
@@ -29,7 +29,7 @@ This is the public-safe version of a pattern many real systems use: one assistan
 2. Ask or confirm where it lives: local path, repo link, app, or connected file source.
 3. Identify the source-of-truth files.
 4. Define the read order.
-5. Define when external source data beats Lumina memory.
+5. Define when external source data beats Light Agent Kit memory.
 6. Decide the access level:
    - read-only
    - suggest changes
@@ -59,7 +59,7 @@ Read next, if relevant:
 -
 
 Source hierarchy:
-- If Lumina and this source conflict, trust:
+- If Light Agent Kit and this source conflict, trust:
 
 Access:
 
@@ -95,6 +95,6 @@ First test:
 - Default to read-only.
 - Do not copy private source material into public examples.
 - Do not write to a shared external source unless the permission map explicitly allows it.
-- If the external source has fresher operational data than Lumina, say that and cite the file used.
+- If the external source has fresher operational data than Light Agent Kit, say that and cite the file used.
 - If a detail is missing from the source, say it is missing instead of guessing.
 - Treat credentials, private accounts, client files, and financial data as gated.

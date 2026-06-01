@@ -8,7 +8,7 @@ Find where the user's real life is repetitive, scattered, or attention-heavy, tr
 - `profile/power-map.md`: what it could grow into next.
 - `profile/permission-map.md`: what needs approval.
 
-This is the skill that turns Lumina from a set of files into an assistant that understands what it could actually do for this person.
+This is the skill that turns Light Agent Kit from a set of files into an assistant that understands what it could actually do for this person.
 
 ## Use When
 

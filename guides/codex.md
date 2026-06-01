@@ -1,20 +1,20 @@
-# Using Lumina With Codex
+# Using Light Agent Kit With Codex
 
 Codex is useful when you want an AI assistant to read and edit files in a local folder.
 
 ## Setup
 
 1. Open the repo in Codex, or paste the GitHub link into a Codex session that can read repos.
-2. Say: `Onboard me with Lumina.`
+2. Say: `Onboard me with Light Agent Kit.`
 3. Let Codex read the repo, ask one question at a time, and build your private workspace as you answer.
 
 ## Fallback Request
 
 ```text
-[paste the Lumina Agent Kit repo link]
+[paste the Light Agent Kit repo link]
 
-Onboard me with Lumina.
-Build my private Lumina workspace as we go.
+Onboard me with Light Agent Kit.
+Build my private Light Agent Kit workspace as we go.
 Use skills/workspace-builder.md if you can edit files.
 Run capability discovery and end by doing one useful thing.
 ```

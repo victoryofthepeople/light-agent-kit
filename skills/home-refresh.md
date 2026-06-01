@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Keep `home.md` useful as the first visible page of the Lumina workspace.
+Keep `home.md` useful as the first visible page of the Light Agent Kit workspace.
 
 It should show what matters now, what the assistant knows, what it can do, what needs approval, and what power may come next.
 

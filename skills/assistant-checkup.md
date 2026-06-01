@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Review whether the Lumina assistant is set up clearly, safely, and usefully.
+Review whether the Light Agent Kit assistant is set up clearly, safely, and usefully.
 
 ## Use When
 

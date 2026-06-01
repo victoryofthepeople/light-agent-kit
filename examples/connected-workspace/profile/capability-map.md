@@ -15,7 +15,7 @@ What this assistant can do now. It pairs with `power-map.md` and `permission-map
 
 ## Can Read
 
-- Lumina workspace files.
+- Light Agent Kit workspace files.
 - Phone messages sent directly to the assistant capture channel.
 - Calendar event titles, times, and attendees.
 - Project notes in the private local workspace.
@@ -51,7 +51,7 @@ What this assistant can do now. It pairs with `power-map.md` and `permission-map
 
 - Phone capture channel: inbound only.
 - Calendar: read-only.
-- Local notes: read and write inside the Lumina workspace.
+- Local notes: read and write inside the Light Agent Kit workspace.
 - Scheduler runtime: morning brief and Friday review only.
 
 ## Growing Next

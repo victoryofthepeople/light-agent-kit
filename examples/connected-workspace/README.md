@@ -2,7 +2,7 @@
 
 Fictional example.
 
-This shows a stronger Lumina setup after a user has already proved value with files and chat.
+This shows a stronger Light Agent Kit setup after a user has already proved value with files and chat.
 
 The assistant can capture ideas from a phone channel, read calendar context, run scheduled reviews through a connected runtime, and write safe local notes. Sensitive actions still need approval.
 
@@ -22,7 +22,7 @@ She wants her assistant to:
 
 - Phone capture: inbound messages become ideas or tasks.
 - Calendar read-only: the assistant can see meeting times and titles.
-- Local notes: the assistant can update the Lumina workspace.
+- Local notes: the assistant can update the Light Agent Kit workspace.
 - Scheduled runtime: the assistant can run morning and weekly reviews.
 - Draft-only messaging: the assistant can draft follow-ups, but Maya sends them.
 

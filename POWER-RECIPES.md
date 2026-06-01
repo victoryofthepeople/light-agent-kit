@@ -20,7 +20,7 @@ Recipes do not install tools. They help the assistant choose the right next powe
 Use when:
 
 - The user already has a project folder, Obsidian vault, client folder, repo, or business brain.
-- Important context lives outside the Lumina workspace.
+- Important context lives outside the Light Agent Kit workspace.
 - The assistant needs a source-of-truth read order.
 
 Starts as:

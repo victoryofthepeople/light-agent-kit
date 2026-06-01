@@ -2,7 +2,7 @@
 
 These examples are fictional.
 
-They show what a Lumina workspace can look like after onboarding. Use them as a shape, then write your own private version.
+They show what a Light Agent Kit workspace can look like after onboarding. Use them as a shape, then write your own private version.
 
 The knowledge examples show both simple notes and the stronger source -> brief -> concept flow.
 

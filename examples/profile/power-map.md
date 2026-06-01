@@ -91,7 +91,7 @@ Review goals, active tasks, project notes, and lessons.
 
 What it can access:
 
-Local Lumina Markdown files.
+Local Light Agent Kit Markdown files.
 
 What approval rule applies:
 

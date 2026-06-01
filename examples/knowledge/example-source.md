@@ -4,7 +4,7 @@ Fictional example.
 
 ---
 title: "Assistant Permission Notes"
-author: "Lumina Example"
+author: "Light Agent Kit Example"
 type: note
 date_added: 2026-01-01
 tags: [permissions, safety, onboarding]

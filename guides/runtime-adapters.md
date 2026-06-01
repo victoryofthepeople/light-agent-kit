@@ -1,6 +1,6 @@
 # Runtime Adapters
 
-Lumina is a readable Markdown workspace. Stronger runtimes can use that context when you add them. This guide shows how your Lumina files carry over into Hermes, OpenClaw, and other agent systems.
+Light Agent Kit is a readable Markdown workspace. Stronger runtimes can use that context when you add them. This guide shows how your Light Agent Kit files carry over into Hermes, OpenClaw, and other agent systems.
 
 ## Read this first
 
@@ -10,14 +10,14 @@ You do not need to memorize any of these names. The fastest, version-proof way t
 
 ## Why this matters
 
-Your personal context belongs to you. If you later use Hermes, OpenClaw, Claude, Codex, or another runtime, you should be able to carry over who you are, what you are working toward, how you like help, what requires approval, the skills you use, and the lessons the assistant has learned. Lumina keeps all of that in plain files so it stays portable.
+Your personal context belongs to you. If you later use Hermes, OpenClaw, Claude, Codex, or another runtime, you should be able to carry over who you are, what you are working toward, how you like help, what requires approval, the skills you use, and the lessons the assistant has learned. Light Agent Kit keeps all of that in plain files so it stays portable.
 
 ## Generic Runtime Adapter
 
-This works for any runtime, regardless of what it names its files. Paste this into the new runtime once it can read your Lumina workspace:
+This works for any runtime, regardless of what it names its files. Paste this into the new runtime once it can read your Light Agent Kit workspace:
 
 ```text
-Read my Lumina workspace: home.md, profile/me.md, profile/goals.md,
+Read my Light Agent Kit workspace: home.md, profile/me.md, profile/goals.md,
 profile/preferences.md, profile/taste-and-standards.md,
 profile/capability-map.md, profile/power-map.md, profile/permission-map.md,
 tasks/active.md, tasks/lessons.md, power/, and skills/.
@@ -27,7 +27,7 @@ Then do four things:
    toward, what good work looks like, how I want help, and what always needs my approval.
 2. Put that summary wherever YOU store user profile, long-term memory, and
    assistant instructions. Use your own correct file names and locations.
-3. Register my Lumina skills as your kind of skill or saved procedure.
+3. Register my Light Agent Kit skills as your kind of skill or saved procedure.
 4. Show me exactly where you put each piece, and confirm my approval
    gates carried over. Do not enable app access, sending, spending, or
    automation until I approve each one.
@@ -35,11 +35,11 @@ Then do four things:
 
 That prompt makes the runtime do the mapping with its own current file names, so it keeps working even when those names change.
 
-## Lumina to Hermes
+## Light Agent Kit to Hermes
 
-Hermes uses long-term memory, skills, context files, provider setup, gateway setup, and optional personality files. Look for the Hermes equivalent of each Lumina file:
+Hermes uses long-term memory, skills, context files, provider setup, gateway setup, and optional personality files. Look for the Hermes equivalent of each Light Agent Kit file:
 
-| Lumina file | Hermes equivalent |
+| Light Agent Kit file | Hermes equivalent |
 | --- | --- |
 | `profile/me.md` | user profile summary |
 | `profile/preferences.md` | user profile and personality file |
@@ -57,11 +57,11 @@ Sources (verify current file names here):
 - [Hermes Skills](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)
 - [Hermes Quickstart](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart)
 
-## Lumina to OpenClaw
+## Light Agent Kit to OpenClaw
 
-OpenClaw uses agent workspaces, Markdown memory files, skills, gateway configuration, channels, and optional memory wiki layers. Look for the OpenClaw equivalent of each Lumina file:
+OpenClaw uses agent workspaces, Markdown memory files, skills, gateway configuration, channels, and optional memory wiki layers. Look for the OpenClaw equivalent of each Light Agent Kit file:
 
-| Lumina file | OpenClaw equivalent |
+| Light Agent Kit file | OpenClaw equivalent |
 | --- | --- |
 | `profile/me.md` | durable user context in workspace memory |
 | `profile/preferences.md` | workspace memory and personality file |
@@ -81,4 +81,4 @@ Sources (verify current file names here):
 
 ## Adapter rule
 
-Compact the durable context first, then link back to the full Lumina files when the runtime can read them. Carry approval gates over before any capability. A runtime should know what needs your sign-off before it can act, not after.
+Compact the durable context first, then link back to the full Light Agent Kit files when the runtime can read them. Carry approval gates over before any capability. A runtime should know what needs your sign-off before it can act, not after.

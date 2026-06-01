@@ -27,5 +27,5 @@ Good memory helps the assistant remember goals, preferences, tasks, and boundari
 
 ## Possible Uses
 
-- Explain Lumina to someone new to agents.
+- Explain Light Agent Kit to someone new to agents.
 - Decide what belongs in memory.

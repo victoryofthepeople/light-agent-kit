@@ -1,18 +1,18 @@
 # Onboarding
 
-This is the setup flow for Lumina Agent Kit.
+This is the setup flow for Light Agent Kit.
 
 It is written for the AI agent. The user should be able to paste this repo into Claude, ChatGPT, Codex, or another agent and say:
 
 ```text
-Onboard me with Lumina.
+Onboard me with Light Agent Kit.
 ```
 
 ## Goal
 
 By the end, the user has:
 
-- A private Lumina workspace.
+- A private Light Agent Kit workspace.
 - A `home.md` page that shows the current setup.
 - A useful profile.
 - Goals and active tasks.
@@ -105,7 +105,7 @@ Create or draft:
 - `home.md`
 - `README.md` in the private workspace if editing files
 
-Keep it broad enough for personal, business, client, or project use. Lumina is a flexible agent workspace that should adapt to the user's real context.
+Keep it broad enough for personal, business, client, or project use. Light Agent Kit is a flexible agent workspace that should adapt to the user's real context.
 
 ### 2. Find The First Useful Result
 
@@ -293,7 +293,7 @@ Possible next layers:
 
 If the user wants to explore a new power, use `templates/power/power-activation-card.md` and `skills/power-activation.md`.
 
-If the user already has an existing vault, repo, client folder, or business brain, use `skills/vault-bridge.md` so Lumina can reference it without turning onboarding into a copy-and-paste migration.
+If the user already has an existing vault, repo, client folder, or business brain, use `skills/vault-bridge.md` so Light Agent Kit can reference it without turning onboarding into a copy-and-paste migration.
 
 Do not connect anything during onboarding unless the user explicitly asks and the approval rule is clear.
 
@@ -320,7 +320,7 @@ Refresh `home.md` before the final summary.
 End with:
 
 ```text
-## Lumina Setup Summary
+## Light Agent Kit Setup Summary
 
 Workspace created:
 
