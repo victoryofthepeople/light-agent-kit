@@ -1,14 +1,14 @@
 # Capabilities
 
-Lumina helps an AI agent work with a person, business, client, or project through plain Markdown files the user can read.
+Light Agent Kit helps an AI agent work with a person, business, client, or project through plain Markdown files the user can read.
 
 Agents can already do a lot: reason, search, write, summarize, compare, code, plan, use tools, operate apps, monitor changes, run workflows, and coordinate work across systems when they have the right runtime.
 
-The agent brings the intelligence. Lumina gives it the missing context: who it is helping, what matters, what good work looks like, which workflows to repeat, and what needs a clear yes before acting.
+The agent brings the intelligence. The kit gives it the missing context: who it is helping, what matters, what good work looks like, which workflows to repeat, and what needs a clear yes before acting.
 
 ## The Short Version
 
-Lumina helps the agent answer:
+The kit helps the agent answer:
 
 - Who am I helping?
 - What are they trying to do?
@@ -21,7 +21,7 @@ Lumina helps the agent answer:
 
 That is the point of the files. They help a capable agent work with less guessing.
 
-## What An Agent Can Do With Lumina
+## What An Agent Can Do With Light Agent Kit
 
 ### Think With The User
 
@@ -46,7 +46,7 @@ Files:
 
 ### Map And Grow Its Own Power
 
-Lumina separates power into three simple maps:
+Light Agent Kit separates power into three simple maps:
 
 - `capability-map.md`: what is live now.
 - `power-map.md`: what could become useful next.
@@ -97,7 +97,7 @@ Files:
 
 Some people want daily planning. Some want weekly review. Some only want the agent to step in when asked.
 
-Lumina includes morning and evening skills as optional patterns.
+The kit includes morning and evening skills as optional patterns.
 
 The agent can adapt cadence around:
 
@@ -118,7 +118,7 @@ Files:
 
 ### Improve Through Feedback
 
-When the user corrects the assistant, Lumina gives the agent a place to save the lesson.
+When the user corrects the assistant, the kit gives the agent a place to save the lesson.
 
 That means the user should not have to repeat the same preference over and over.
 
@@ -146,7 +146,7 @@ Files:
 
 ### Research And Build Knowledge
 
-Lumina supports two levels:
+The kit supports two levels:
 
 - Simple notes.
 - Source-backed research with sources, briefs, concept pages, and a research log.
@@ -208,7 +208,7 @@ Folder:
 
 ### Use Stronger Power Layers
 
-Lumina can begin with files and chat, then compound into:
+Light Agent Kit can begin with files and chat, then compound into:
 
 - Notes app workflows.
 - Phone access.
@@ -238,7 +238,7 @@ Template and skills:
 
 ## What Needs Another Runtime
 
-Lumina is a file-based operating layer.
+Light Agent Kit is a file-based operating layer.
 
 These powers require a connected tool, app, or runtime:
 
@@ -251,13 +251,13 @@ These powers require a connected tool, app, or runtime:
 - Spend money.
 - Automate a server.
 
-Lumina gives the agent the context, rules, and structure to use those powers more clearly when the user chooses to add them.
+The kit gives the agent the context, rules, and structure to use those powers more clearly when the user chooses to add them.
 
 ## Why This Is Useful
 
 Modern agents can do a lot. The hard part is giving them enough context, direction, and feedback to aim that power at the right things.
 
-Lumina gives the agent a readable workspace for this:
+Light Agent Kit gives the agent a readable workspace for this:
 
 - Understand the person.
 - Map the power.

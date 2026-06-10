@@ -19,7 +19,7 @@ Status:
 What this lets the assistant do:
 
 - Receive quick ideas, tasks, and voice-note summaries while Maya is away from her desk.
-- Route captures into the right Lumina files.
+- Route captures into the right Light Agent Kit files.
 
 What real problem it solves:
 

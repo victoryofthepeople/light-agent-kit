@@ -18,7 +18,7 @@ Maya runs a small design studio. She likes warm, clear direction, practical plan
 
 ## What The Assistant Can Do Now
 
-- Read the Lumina workspace.
+- Read the Light Agent Kit workspace.
 - Organize tasks, ideas, and project notes.
 - Draft copy for review.
 - Save lessons from explicit corrections.

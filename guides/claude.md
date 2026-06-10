@@ -1,12 +1,12 @@
-# Using Lumina With Claude
+# Using Light Agent Kit With Claude
 
 Claude is useful when you want a conversational assistant to help you think, plan, write, and organize files.
 
 ## Agent-First Setup
 
 1. Open Claude or Claude Code.
-2. Paste the Lumina GitHub repo link.
-3. Say: `Onboard me with Lumina.`
+2. Paste the Light Agent Kit GitHub repo link.
+3. Say: `Onboard me with Light Agent Kit.`
 4. Let Claude read the repo, ask one question at a time, and build your private workspace as you answer.
 
 Claude Code can read `CLAUDE.md`, which imports `AGENTS.md` and adds Claude-specific guidance.
@@ -14,11 +14,11 @@ Claude Code can read `CLAUDE.md`, which imports `AGENTS.md` and adds Claude-spec
 ## Fallback Request
 
 ```text
-[paste the Lumina Agent Kit repo link]
+[paste the Light Agent Kit repo link]
 
-Onboard me with Lumina.
+Onboard me with Light Agent Kit.
 Ask one question at a time.
-Build my private Lumina workspace as we go.
+Build my private workspace as we go.
 Run capability discovery.
 End by doing one useful thing.
 ```

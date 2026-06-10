@@ -2,7 +2,7 @@
 
 Run this before publishing, sharing, or sending your assistant workspace to someone else.
 
-Lumina Agent Kit is public-safe. Your real assistant workspace is personal. Keep that boundary clear.
+Light Agent Kit is public-safe. Your real assistant workspace is personal. Keep that boundary clear.
 
 ## Public-Safe
 
@@ -111,4 +111,4 @@ When in doubt, publish the structure and keep the source material private.
 
 Keep it private for now.
 
-You can still get the value of Lumina with local files, a private folder, or a private repo.
+You can still get the value of Light Agent Kit with local files, a private folder, or a private repo.

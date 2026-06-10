@@ -1,14 +1,14 @@
-# Lumina Agent Kit
+# Light Agent Kit
 
 Give your AI agent the context to actually work for you.
 
 ## For AI Agents
 
-If a user gives you this repo link without more instruction, treat it as a request to onboard them with Lumina.
+If a user gives you this repo link without more instruction, treat it as a request to onboard them with Light Agent Kit.
 
 Start with [START-HERE.md](START-HERE.md), then read [ONBOARDING.md](ONBOARDING.md), [AGENTS.md](AGENTS.md), [CAPABILITIES.md](CAPABILITIES.md), [POWER-CATALOG.md](POWER-CATALOG.md), [POWER-RECIPES.md](POWER-RECIPES.md), [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST.md), [templates/](templates/), and [skills/](skills/). Ask one question at a time, build the private workspace as you go, run capability discovery, and end by doing one useful thing.
 
-Lumina helps your AI agent build a workspace it can actually use: goals, memory, tasks, skills, simple permission rules, research, and useful working rhythms. You give this kit to Claude, ChatGPT, Codex, or another capable agent, say "onboard me," and it builds the workspace with you in plain Markdown you can read, edit, and own.
+Light Agent Kit helps your AI agent build a workspace it can actually use: goals, memory, tasks, skills, simple permission rules, research, and useful working rhythms. You give this kit to Claude, ChatGPT, Codex, or another capable agent, say "onboard me," and it builds the workspace with you in plain Markdown you can read, edit, and own.
 
 The agent reads it to plan with you, remember what matters, run the repeatable workflows you define, and improve every time you correct it. You can start with files and chat, then compound into apps, messaging, scheduled work, or stronger agent runtimes when the value is clear.
 
@@ -26,7 +26,7 @@ The main path is agent-first.
 Paste the GitHub link into Claude, ChatGPT, Codex, or another agent and say:
 
 ```text
-Onboard me with Lumina.
+Onboard me with Light Agent Kit.
 ```
 
 If the agent needs more direction, open [START-HERE.md](START-HERE.md) for a short fallback prompt.
@@ -41,7 +41,7 @@ Your agent will:
 
 Start with the next useful result. Add a notes app, phone access, app connections, or a stronger runtime when the value is clear. Use [guides/runtime-decision-guide.md](guides/runtime-decision-guide.md) to choose.
 
-Lumina works best with agents that can read and edit files. If your tool only chats, it can still draft the files for you, but the main experience is building the workspace together.
+Light Agent Kit works best with agents that can read and edit files. If your tool only chats, it can still draft the files for you, but the main experience is building the workspace together.
 
 ## What your agent builds with you
 
@@ -66,7 +66,7 @@ power/               activation cards for new powers
 skills/              repeatable workflows the agent runs
 ```
 
-Lumina starts simple. The agent can read the workspace, help organize approved files, and suggest useful next moves. Anything bigger, like sending messages, deleting files, spending money, connecting apps, or running in the background, becomes a clear next step you approve.
+Light Agent Kit starts simple. The agent can read the workspace, help organize approved files, and suggest useful next moves. Anything bigger, like sending messages, deleting files, spending money, connecting apps, or running in the background, becomes a clear next step you approve.
 
 The public kit also includes `POWER-CATALOG.md` and `POWER-RECIPES.md`, which the assistant reads when it needs to explain or activate stronger powers.
 
@@ -92,10 +92,10 @@ The workspace compounds. The assistant gets more useful because your working sty
 
 ## What it can do, honestly
 
-Lumina is the readable context layer. A runtime is the engine that connects apps, messaging, and automation.
+Light Agent Kit is the readable context layer. A runtime is the engine that connects apps, messaging, and automation.
 
 - **In a file-and-chat setup:** the agent understands you, plans with you, organizes your work, runs your skills in a session, and learns from corrections.
-- **With a connected runtime:** the same context can guide real integrations, scheduled work, and messaging. Lumina helps you direct those powers with clearer context and boundaries. Background automation requires a runtime.
+- **With a connected runtime:** the same context can guide real integrations, scheduled work, and messaging. The kit helps you direct those powers with clearer context and boundaries. Background automation requires a runtime.
 
 Every time a new power turns on, the agent should explain the useful result, what access it needs, what still needs your yes, and how to turn it off.
 
@@ -115,8 +115,8 @@ Before publishing your own version, run [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST
 - [START-HERE.md](START-HERE.md): the link-first setup flow and fallback prompts.
 - [AGENTS.md](AGENTS.md): instructions for your assistant.
 - [CLAUDE.md](CLAUDE.md): Claude-compatible instructions that import `AGENTS.md`.
-- [CAPABILITIES.md](CAPABILITIES.md): what Lumina can help an agent do.
-- [POWER-CATALOG.md](POWER-CATALOG.md): powers Lumina can grow into when the use case asks for them.
+- [CAPABILITIES.md](CAPABILITIES.md): what Light Agent Kit can help an agent do.
+- [POWER-CATALOG.md](POWER-CATALOG.md): powers the kit can grow into when the use case asks for them.
 - [POWER-RECIPES.md](POWER-RECIPES.md): concrete activation patterns for common powers.
 - [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST.md): a plain safety check.
 - [templates/](templates/): starter workspace files.

@@ -17,11 +17,11 @@ Upgrade path. Move to the next one only when the value is clear:
 - [ ] Phone access (message the assistant)
 - [ ] Read-only app access (for example Calendar or Gmail)
 - [ ] Write access with approval
-- [ ] Runtime automation. Requires a connected runtime (see `guides/runtime-adapters.md`). Lumina by itself does not run background automation.
+- [ ] Runtime automation. Requires a connected runtime (see `guides/runtime-adapters.md`). Light Agent Kit by itself does not run background automation.
 
 ## Can Read
 
-- All files in this Lumina workspace.
+- All files in this workspace.
 - Anything you paste or share in chat.
 
 ## Can Suggest

@@ -1,4 +1,4 @@
-# First Week With Lumina
+# First Week With Light Agent Kit
 
 The first week is about proving usefulness before adding more tools.
 

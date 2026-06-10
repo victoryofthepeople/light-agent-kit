@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Create the user's private Lumina workspace from the kit without mixing public templates, private notes, and build notes.
+Create the user's private Light Agent Kit workspace from the kit without mixing public templates, private notes, and build notes.
 
 Use this when the assistant can edit files directly.
 
 ## Use When
 
-- The user says "install Lumina," "set this up," "onboard me," or "build my workspace."
+- The user says "install Light Agent Kit," "set this up," "onboard me," or "build my workspace."
 - The agent is running in Codex, Claude Code, or another file-editing runtime.
 - The user wants a private workspace instead of chat-only drafts.
 
@@ -25,7 +25,7 @@ Use this when the assistant can edit files directly.
 
 1. Choose the private workspace location.
    - If the user gave a path, use it.
-   - If not, suggest `my-lumina/` or `lumina-workspace/`.
+   - If not, suggest `my-workspace/` or `agent-workspace/`.
 2. Create the minimum folder structure:
    - `profile/`
    - `tasks/`

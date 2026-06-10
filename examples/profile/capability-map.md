@@ -15,7 +15,7 @@ What this assistant can do now. It pairs with `power-map.md` and `permission-map
 
 ## Can Read
 
-- Lumina workspace files.
+- Light Agent Kit workspace files.
 - Daily notes the user adds.
 - Project files the user shares.
 - Local Markdown notes in the user's private notes folder.

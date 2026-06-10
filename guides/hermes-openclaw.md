@@ -1,14 +1,14 @@
 # Hermes, OpenClaw, And Other Agent Runtimes
 
-Lumina Agent Kit is a readable operating layer for context, memory, skills, permissions, and useful working rhythms.
+Light Agent Kit is a readable operating layer for context, memory, skills, permissions, and useful working rhythms.
 
 Tools like Hermes, OpenClaw, and similar systems are agent runtimes. A runtime is the engine that can connect tools, channels, memory, schedules, and actions.
 
-Lumina helps you decide what the assistant should know, how it should behave, and what boundaries it should follow. It should learn from these runtimes and stay compatible with them where possible.
+Light Agent Kit helps you decide what the assistant should know, how it should behave, and what boundaries it should follow. It should learn from these runtimes and stay compatible with them where possible.
 
 ## Simple Difference
 
-Lumina:
+Light Agent Kit:
 
 - Helps you define goals, notes, tasks, preferences, and permissions.
 - Creates a human-readable Markdown workspace.
@@ -24,7 +24,7 @@ Agent runtimes:
 
 ## Good Order
 
-1. Build the Lumina workspace.
+1. Build the kit workspace.
 2. Use it for a few real tasks.
 3. Notice which tasks repeat.
 4. Add tools or a runtime for repeated, useful workflows.

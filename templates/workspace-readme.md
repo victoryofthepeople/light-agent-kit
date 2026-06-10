@@ -1,4 +1,4 @@
-# Lumina Workspace
+# Light Agent Kit Workspace
 
 This is the private workspace for the assistant.
 

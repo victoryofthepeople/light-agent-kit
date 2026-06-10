@@ -110,4 +110,4 @@ First test:
 - Prefer a short useful skill over a long perfect one.
 - Keep tool-specific details out unless that tool is already connected.
 - If the skill needs a new app, runtime, or account, create a power activation card first.
-- If the target runtime has its own skill format, keep the Lumina skill as the readable source, then adapt it with `skills/runtime-export.md`.
+- If the target runtime has its own skill format, keep the Light Agent Kit skill as the readable source, then adapt it with `skills/runtime-export.md`.

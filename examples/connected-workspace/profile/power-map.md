@@ -90,7 +90,7 @@ Client follow-ups are valuable and easy to miss.
 
 What the assistant can do:
 
-Summarize unread client threads, suggest follow-ups, and add approved tasks to the Lumina workspace.
+Summarize unread client threads, suggest follow-ups, and add approved tasks to the Light Agent Kit workspace.
 
 What it can access:
 

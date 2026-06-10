@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Prepare Lumina context for another AI tool or runtime without dumping the whole workspace.
+Prepare Light Agent Kit context for another AI tool or runtime without dumping the whole workspace.
 
 Use this to carry the user's profile, standards, permissions, lessons, skills, and active context into Claude, Codex, Hermes, OpenClaw, or another runtime.
 
 ## Use When
 
-- The user wants to use Lumina context in another AI tool.
+- The user wants to use kit context in another AI tool.
 - The user is connecting a stronger runtime.
 - The user asks for a compact system prompt, context bundle, or migration summary.
 
@@ -41,12 +41,12 @@ Use this to carry the user's profile, standards, permissions, lessons, skills, a
 4. Carry lessons before preferences that might conflict with them.
 5. Include only skills relevant to the target use case.
 6. List source files used so the user can inspect the bundle.
-7. Show the export bundle and ask before placing it anywhere outside the Lumina workspace.
+7. Show the export bundle and ask before placing it anywhere outside the kit workspace.
 
 ## Output
 
 ```text
-# Lumina Runtime Export
+# Light Agent Kit Runtime Export
 
 Target:
 

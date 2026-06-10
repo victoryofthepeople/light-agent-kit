@@ -1,6 +1,6 @@
 # Home
 
-Use this as the first visible page of the private Lumina workspace.
+Use this as the first visible page of the private Light Agent Kit workspace.
 
 The assistant updates it during onboarding and after meaningful changes.
 

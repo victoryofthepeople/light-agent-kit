@@ -1,6 +1,6 @@
 # Power Catalog
 
-This catalog tells the assistant what kinds of powers Lumina can grow into.
+This catalog tells the assistant what kinds of powers Light Agent Kit can grow into.
 
 It is not an install list. It is not permission. It is a map of what is possible, what each power needs, and when it is worth activating.
 
