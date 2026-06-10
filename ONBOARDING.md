@@ -42,6 +42,8 @@ Before asking questions, read:
 - `skills/capability-discovery.md`
 - `skills/vault-bridge.md`
 - `skills/README.md`
+- `examples/onboarding-sample.md`
+- `examples/first-session-walkthrough.md`
 
 If using Claude Code, also read `CLAUDE.md`.
 

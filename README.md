@@ -39,6 +39,8 @@ Your agent will:
 4. Recommend the first skills worth using.
 5. Do one genuinely useful thing before you finish.
 
+Want to see what that looks like in practice? Read [examples/first-session-walkthrough.md](examples/first-session-walkthrough.md): a messy brain dump goes in, an organized week comes out, and a correction becomes a durable lesson.
+
 Start with the next useful result. Add a notes app, phone access, app connections, or a stronger runtime when the value is clear. Use [guides/runtime-decision-guide.md](guides/runtime-decision-guide.md) to choose.
 
 Light Agent Kit works best with agents that can read and edit files. If your tool only chats, it can still draft the files for you, but the main experience is building the workspace together.
@@ -120,7 +122,7 @@ Before publishing your own version, run [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST
 - [POWER-RECIPES.md](POWER-RECIPES.md): concrete activation patterns for common powers.
 - [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST.md): a plain safety check.
 - [templates/](templates/): starter workspace files.
-- [examples/](examples/): fictional examples that show the shape.
+- [examples/](examples/): fictional examples that show the shape, including a full [first session walkthrough](examples/first-session-walkthrough.md).
 - [skills/](skills/): repeatable workflows the agent runs.
 - [guides/](guides/): setup for tools, phones, runtimes, and choosing a runtime.
 

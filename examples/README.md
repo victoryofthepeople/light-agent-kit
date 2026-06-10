@@ -14,4 +14,6 @@ The `home.md` example shows the first page a user should see after onboarding.
 
 The `onboarding-sample.md` example shows the tone and shape of a good first setup conversation.
 
+The `first-session-walkthrough.md` example shows a full first working session: a messy brain dump in, an organized week out, and a correction saved as a lesson.
+
 The `power/` examples show how new powers become concrete before anything is connected.
