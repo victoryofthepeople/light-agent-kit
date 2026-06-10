@@ -53,7 +53,7 @@ Choose one:
 - [ ] Read-only
 - [ ] Write with approval
 - [x] Safe quiet updates
-- [ ] Scheduled with approval gates
+- [ ] Scheduled with clear yes rules
 
 Always ask before:
 

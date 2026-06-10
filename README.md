@@ -8,7 +8,7 @@ If a user gives you this repo link without more instruction, treat it as a reque
 
 Start with [START-HERE.md](START-HERE.md), then read [ONBOARDING.md](ONBOARDING.md), [AGENTS.md](AGENTS.md), [CAPABILITIES.md](CAPABILITIES.md), [POWER-CATALOG.md](POWER-CATALOG.md), [POWER-RECIPES.md](POWER-RECIPES.md), [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST.md), [templates/](templates/), and [skills/](skills/). Ask one question at a time, build the private workspace as you go, run capability discovery, and end by doing one useful thing.
 
-Lumina helps your AI agent build a powerful, readable operating layer around a person, business, client, or project: goals, memory, tasks, skills, permissions, research, and useful working rhythms. You give this kit to Claude, ChatGPT, or Codex, say "onboard me," and it interviews you and builds that layer as plain Markdown you can read, edit, and own.
+Lumina helps your AI agent build a workspace it can actually use: goals, memory, tasks, skills, simple permission rules, research, and useful working rhythms. You give this kit to Claude, ChatGPT, Codex, or another capable agent, say "onboard me," and it builds the workspace with you in plain Markdown you can read, edit, and own.
 
 The agent reads it to plan with you, remember what matters, run the repeatable workflows you define, and improve every time you correct it. You can start with files and chat, then compound into apps, messaging, scheduled work, or stronger agent runtimes when the value is clear.
 
@@ -35,13 +35,13 @@ Your agent will:
 
 1. Walk you through [ONBOARDING.md](ONBOARDING.md), one question at a time.
 2. Build your private workspace from [templates/](templates/) as it learns.
-3. Run capability discovery, then write your capability map, power map, and permission map.
+3. Run capability discovery, then write three simple maps: what is live now, what could come next, and what needs a clear yes.
 4. Recommend the first skills worth using.
 5. Do one genuinely useful thing before you finish.
 
 Start with the next useful result. Add a notes app, phone access, app connections, or a stronger runtime when the value is clear. Use [guides/runtime-decision-guide.md](guides/runtime-decision-guide.md) to choose.
 
-If your tool only does chat, answer the questions and paste the output into your own files. That fallback still works.
+Lumina works best with agents that can read and edit files. If your tool only chats, it can still draft the files for you, but the main experience is building the workspace together.
 
 ## What your agent builds with you
 
@@ -53,11 +53,11 @@ profile/
   taste-and-standards.md
   capability-map.md  what it can do now
   power-map.md       what it can grow into next
-  permission-map.md  what needs your approval
+  permission-map.md  what needs a clear yes
 home.md              first visible workspace summary
 README.md            private workspace guide
 tasks/
-  active.md, done.md, lessons.md
+  active.md, done.md, lessons.md  current work, finished work, and behavior fixes
 daily/               optional check-ins and breadcrumbs
 projects/            deeper context per project
 ideas/               a capture inbox
@@ -66,7 +66,7 @@ power/               activation cards for new powers
 skills/              repeatable workflows the agent runs
 ```
 
-The capability map and permission map ship pre-filled in a safe default state: files and chat only, low-risk writes allowed, everything sensitive gated. They are enforceable from the first session. The power map shows where you could grow next, so more power is a choice you can see coming, never a surprise.
+Lumina starts simple. The agent can read the workspace, help organize approved files, and suggest useful next moves. Anything bigger, like sending messages, deleting files, spending money, connecting apps, or running in the background, becomes a clear next step you approve.
 
 The public kit also includes `POWER-CATALOG.md` and `POWER-RECIPES.md`, which the assistant reads when it needs to explain or activate stronger powers.
 
@@ -76,7 +76,7 @@ This is where the power lives, so it helps to name it early:
 
 - **Memory** is what the agent knows and can reuse: your profile, goals, projects, and daily notes.
 - **Skills** are repeatable ways the agent does work, like a morning brief or organizing a brain dump.
-- **Lessons** are corrections that become future behavior, so the agent improves because you used it.
+- **Lessons** are corrections that become future behavior, so the agent improves because you used it. They live in `tasks/` because each lesson changes how the assistant does work next time.
 
 Power you can read, not bookkeeping.
 
@@ -97,7 +97,7 @@ Lumina is the readable context layer. A runtime is the engine that connects apps
 - **In a file-and-chat setup:** the agent understands you, plans with you, organizes your work, runs your skills in a session, and learns from corrections.
 - **With a connected runtime:** the same context can guide real integrations, scheduled work, and messaging. Lumina helps you direct those powers with clearer context and boundaries. Background automation requires a runtime.
 
-Every time a new power turns on, the agent tells you what it can do, what it can access, the approval rule, and how to turn it off. The power and its boundary arrive together.
+Every time a new power turns on, the agent should explain the useful result, what access it needs, what still needs your yes, and how to turn it off.
 
 For a plain rundown, read [CAPABILITIES.md](CAPABILITIES.md).
 
@@ -119,7 +119,7 @@ Before publishing your own version, run [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST
 - [POWER-CATALOG.md](POWER-CATALOG.md): powers Lumina can grow into when the use case asks for them.
 - [POWER-RECIPES.md](POWER-RECIPES.md): concrete activation patterns for common powers.
 - [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST.md): a plain safety check.
-- [templates/](templates/): workspace files, pre-filled with safe defaults.
+- [templates/](templates/): starter workspace files.
 - [examples/](examples/): fictional examples that show the shape.
 - [skills/](skills/): repeatable workflows the agent runs.
 - [guides/](guides/): setup for tools, phones, runtimes, and choosing a runtime.
@@ -131,7 +131,7 @@ Before publishing your own version, run [PRIVACY-CHECKLIST.md](PRIVACY-CHECKLIST
 - Ask only the questions that unlock progress.
 - Let smart agents reason. Use structure to aim them.
 - Teach AI concepts inside real tasks.
-- Make capabilities and permissions visible.
+- Make current abilities and clear yes rules visible.
 - Turn corrections into durable lessons.
 - Stay portable across AI tools and runtimes.
 - Keep research sourced, dated, and easy to revise.

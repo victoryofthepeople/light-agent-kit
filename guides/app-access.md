@@ -56,4 +56,4 @@ The assistant should ask before:
 
 Start with no access or read-only access.
 
-Add write access only when the assistant already understands your preferences and approval gates.
+Add write access only when the assistant already understands your preferences and clear yes rules.

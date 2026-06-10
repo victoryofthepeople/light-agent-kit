@@ -55,4 +55,4 @@ Good for:
 - Treat phone messages as private.
 - Keep secrets out of phone chat.
 - Decide where transcripts are stored.
-- Keep approval gates clear before adding automation.
+- Keep clear yes rules clear before adding automation.

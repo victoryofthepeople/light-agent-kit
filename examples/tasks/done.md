@@ -5,7 +5,7 @@ Fictional example.
 ## 2026-01-01
 
 - Created the first Lumina workspace.
-- Chose communication style and approval gates.
+- Chose communication style and clear yes rules.
 - Captured active portfolio tasks.
 
 ## Wins Worth Remembering

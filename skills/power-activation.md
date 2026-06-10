@@ -36,7 +36,7 @@ This skill creates or updates a power activation card, then updates the capabili
 10. After approval, update:
    - `profile/capability-map.md` if the power is live now.
    - `profile/power-map.md` if the power is still planned.
-   - `profile/permission-map.md` for gates and access level.
+   - `profile/permission-map.md` for clear yes rules and access level.
    - `home.md` with a short summary.
 
 ## Output
@@ -65,6 +65,6 @@ Map changes:
 
 - A proposed power is not live until the user approves it.
 - Prefer read-only before write access when possible.
-- Sending, publishing, deleting, spending, secrets, and calendar changes always stay gated.
+- Sending, publishing, deleting, spending, secrets, and calendar changes always need a clear yes.
 - Every power needs an off switch.
 - Keep unapproved ideas in `profile/power-map.md`, not `profile/capability-map.md`.

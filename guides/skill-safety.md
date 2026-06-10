@@ -34,7 +34,7 @@ A good skill has:
 - Step-by-step procedure.
 - Pitfalls or edge cases.
 - Verification steps.
-- Approval gates for sensitive actions.
+- Clear yes rules for bigger actions.
 
 ## Third-Party Skills
 

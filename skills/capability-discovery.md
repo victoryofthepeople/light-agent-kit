@@ -47,7 +47,7 @@ This is the skill that turns Lumina from a set of files into an assistant that u
 5. On approval, write the changes:
    - `profile/capability-map.md`: Current Mode and the Can lists, for what the assistant can do now.
    - `profile/power-map.md`: Current Power (mirror of what it can do now), Useful Next Powers (the picked-but-not-yet-connected and the strong unpicked ideas, sorted into the right Future Powers section), and Next Activation (the single best next power, why, what it accesses, which approval rule).
-   - `profile/permission-map.md`: access levels, approval gates, and the App or Skill rows that changed.
+   - `profile/permission-map.md`: access levels, clear yes rules, and the App or Skill rows that changed.
    - `home.md`: a short current summary of what changed, what the assistant can do now, and the next power to consider.
    - `power/POWER-NAME.md`: a proposed activation card if the picked move needs app access, messaging, scheduled work, or another runtime before it can go live.
    - Set Last Reviewed to today on all three.
@@ -98,11 +98,11 @@ First thing the assistant will do to prove it:
 -
 ```
 
-## Approval Gates
+## Clear Yes Rules
 
 - Show the exact changes to all touched files before writing them. Writing any map or activation card needs explicit approval.
 - Never widen access beyond what the user picked. Unpicked ideas go to the power map as future powers, never into the live capability or permission maps.
-- Anything that touches apps, accounts, money, sending, or a runtime stays an approval gate even after this skill runs.
+- Anything that touches apps, accounts, money, sending, or a runtime still needs a clear yes after this skill runs.
 
 ## Verification
 
@@ -113,4 +113,4 @@ First thing the assistant will do to prove it:
 
 - Plain language. Map possibility to this person's real life, never a generic feature list.
 - One capability added at a time. Power grows on purpose.
-- If the user is unsure, keep the safe default and record the idea in the power map for later.
+- If the user is unsure, keep the simple starting point and record the idea in the power map for later.

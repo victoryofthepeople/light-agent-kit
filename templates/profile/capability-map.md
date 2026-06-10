@@ -1,10 +1,10 @@
 # Capability Map
 
-What your assistant can do now. It pairs with `power-map.md` (what it could grow into next) and `permission-map.md` (what needs your approval). The assistant maintains these with you, and they should stay readable at a glance.
+What your assistant can do now. It pairs with `power-map.md` (what could become useful next) and `permission-map.md` (what needs a clear yes). The assistant maintains these with you, and they should stay readable at a glance.
 
-> **For the assistant:** Treat this as live policy, not notes. Act only within Can Read, Can Suggest, Can Change With Approval, and Can Change Quietly. Anything not listed here is not authorized yet. Approval gates live in `permission-map.md`. Re-read this file at the start of any session that will change files. During onboarding and the `capability-discovery` skill, replace the defaults below with the user's real choices and update Last Reviewed.
+> **For the assistant:** Treat this as the current working agreement. Act within Can Read, Can Suggest, Can Change With Approval, and Can Change Quietly. Anything bigger should become a proposed next power first. Re-read this file at the start of any session that will change files. During onboarding and the `capability-discovery` skill, replace the defaults below with the user's real choices and update Last Reviewed.
 
-This file ships in the **safe default state**: files and chat only. It is useful and enforceable exactly as-is. Widen it on purpose, one capability at a time.
+This file starts simple: workspace files and chat. Add more only when it helps the next useful result.
 
 ## Current Mode
 
@@ -48,7 +48,7 @@ Upgrade path. Move to the next one only when the value is clear:
 - `tasks/lessons.md` after an explicit correction from you.
 - `home.md` when summarizing already approved workspace files.
 
-Everything else needs approval first. The full approval list lives in `permission-map.md`.
+Everything else should be proposed first. The full approval list lives in `permission-map.md`.
 
 ## Not Connected Yet
 

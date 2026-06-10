@@ -12,6 +12,7 @@ They are written in plain Markdown so you can read, trust, and edit them. The as
 - [power-activation.md](power-activation.md): turn on new capabilities with value, access, approval, and off-switch clear.
 - [runtime-export.md](runtime-export.md): carry Lumina context into Claude, Codex, Hermes, OpenClaw, or another runtime.
 - [vault-bridge.md](vault-bridge.md): connect Lumina to another vault, repo, client folder, or business brain as a source of truth.
+- [skill-builder.md](skill-builder.md): turn repeated work into a readable workflow the assistant can run again.
 - [morning-brief.md](morning-brief.md): start the day with focus.
 - [evening-planning.md](evening-planning.md): close the day and carry forward open loops.
 - [brain-dump-organizer.md](brain-dump-organizer.md): turn messy thoughts into files and actions.

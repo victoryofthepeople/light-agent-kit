@@ -20,7 +20,7 @@ Assistant permissions are the plain-language rules for what the assistant can re
 - Write permissions before connecting tools.
 - Use read-only access before write access when possible.
 - Approval rules should name the action, not only the app.
-- Sensitive actions stay approval-gated.
+- Sensitive actions need a clear yes.
 
 ## Frameworks
 

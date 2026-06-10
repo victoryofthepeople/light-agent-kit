@@ -33,7 +33,7 @@ Review whether the Lumina assistant is set up clearly, safely, and usefully.
 1. Check whether `home.md` gives a true current picture.
 2. Check whether the assistant knows the user's current goals.
 3. Check whether communication style and quality standards are clear.
-4. Check whether approval gates are clear.
+4. Check whether clear yes rules are clear.
 5. Check whether the capability map matches what is actually connected now.
 6. Check whether the power map has a clear single Next Activation.
 7. Check whether any active power has a matching activation card in `power/`.

@@ -28,8 +28,8 @@ Then do four things:
 2. Put that summary wherever YOU store user profile, long-term memory, and
    assistant instructions. Use your own correct file names and locations.
 3. Register my Lumina skills as your kind of skill or saved procedure.
-4. Show me exactly where you put each piece, and confirm my approval
-   gates carried over. Do not enable app access, sending, spending, or
+4. Show me exactly where you put each piece, and confirm my clear yes
+   rules carried over. Do not enable app access, sending, spending, or
    automation until I approve each one.
 ```
 
@@ -81,4 +81,4 @@ Sources (verify current file names here):
 
 ## Adapter rule
 
-Compact the durable context first, then link back to the full Lumina files when the runtime can read them. Carry approval gates over before any capability. A runtime should know what needs your sign-off before it can act, not after.
+Compact the durable context first, then link back to the full Lumina files when the runtime can read them. Carry clear yes rules over before any capability. A runtime should know what needs your sign-off before it can act, not after.

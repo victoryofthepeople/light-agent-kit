@@ -1,8 +1,8 @@
 # Power Map
 
-What your assistant could grow into next. It pairs with `capability-map.md` (what it can do now) and `permission-map.md` (what needs your approval). The assistant maintains these with you, and they should stay readable at a glance.
+What your assistant could grow into next. It pairs with `capability-map.md` (what it can do now) and `permission-map.md` (what needs a clear yes). The assistant maintains these with you, and they should stay readable at a glance.
 
-> **For the assistant:** Treat this as the roadmap, not a live grant. Nothing here is authorized until it moves into `capability-map.md` with a matching gate in `permission-map.md`. During onboarding and the `capability-discovery` skill, fill this from the user's real life and keep one clear Next Activation. Update Last Reviewed when it changes.
+> **For the assistant:** Treat this as the roadmap, not active access. Nothing here is live until it moves into `capability-map.md` with the right note in `permission-map.md`. During onboarding and the `capability-discovery` skill, fill this from the user's real life and keep one clear Next Activation. Update Last Reviewed when it changes.
 
 The capability map is the present. This file is the near future, so growth is a choice the user sees coming.
 
@@ -73,9 +73,9 @@ Possible runtime direction:
 - Local:
 - VPS or always-on:
 
-## Approval Gates
+## Clear Yes Rules
 
-Every power above stays gated until you approve it. The binding gates live in `permission-map.md`. When a power activates, add its gate there. Do not duplicate gates here.
+Every power above waits for a clear yes before it becomes active. The working rules live in `permission-map.md`. When a power activates, add its rule there. Do not duplicate rules here.
 
 ## Next Activation
 

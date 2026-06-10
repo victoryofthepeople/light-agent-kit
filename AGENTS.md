@@ -94,7 +94,7 @@ Use:
 - `profile/taste-and-standards.md` for what good work looks like.
 - `profile/capability-map.md` for what the assistant can do now.
 - `profile/power-map.md` for what it could grow into next.
-- `profile/permission-map.md` for access levels and approval gates.
+- `profile/permission-map.md` for access levels and clear yes rules.
 - `tasks/` for work to do, completed work, and lessons.
 - `daily/` for daily planning and reflection.
 - `projects/` for deeper project context.

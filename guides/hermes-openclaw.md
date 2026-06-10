@@ -42,7 +42,7 @@ Agent runtimes:
 - `profile/permission-map.md`
 - `tasks/lessons.md`
 - useful skills that match your cadence
-- approval gates
+- clear yes rules
 
 ## Safety Notes
 

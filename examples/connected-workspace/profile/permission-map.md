@@ -2,7 +2,7 @@
 
 Fictional connected example.
 
-What needs approval. It pairs with `capability-map.md` and `power-map.md`.
+What needs a clear yes. It pairs with `capability-map.md` and `power-map.md`.
 
 ## Access Levels
 
@@ -42,7 +42,7 @@ What needs approval. It pairs with `capability-map.md` and `power-map.md`.
 - `tasks/lessons.md` after an explicit correction.
 - `home.md` when summarizing already approved workspace files.
 
-## Approval Gates
+## Clear Yes Rules
 
 Always ask before:
 
@@ -74,6 +74,7 @@ Always ask before:
 | power-activation | read maps and guides; propose activation card and map changes | yes, before writing maps or connecting anything |
 | runtime-export | read selected workspace files; draft export bundle | yes, before placing export outside workspace |
 | vault-bridge | read approved external source files; propose read protocol and map changes | yes, before connecting or writing to any external source |
+| skill-builder | read workspace context; create or draft a new skill | yes, before adding tool access or writing outside `skills/` |
 | morning-brief | read workspace and calendar; write today's daily file | follow the autonomy setting |
 | evening-planning | read workspace; update tasks and today's daily file | confirm the summary |
 | brain-dump-organizer | read capture input; propose routed edits | yes, before writing project or task changes |

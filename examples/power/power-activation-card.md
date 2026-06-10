@@ -52,7 +52,7 @@ Choose one:
 - [x] Read-only
 - [ ] Write with approval
 - [ ] Safe quiet updates
-- [ ] Scheduled with approval gates
+- [ ] Scheduled with clear yes rules
 
 Always ask before:
 

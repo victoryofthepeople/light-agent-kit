@@ -83,7 +83,7 @@ Read protocol:
 
 Access level:
 
-Approval gates:
+Clear yes rules:
 
 Map changes:
 
@@ -97,4 +97,4 @@ First test:
 - Do not write to a shared external source unless the permission map explicitly allows it.
 - If the external source has fresher operational data than Lumina, say that and cite the file used.
 - If a detail is missing from the source, say it is missing instead of guessing.
-- Treat credentials, private accounts, client files, and financial data as gated.
+- Treat credentials, private accounts, client files, and financial data as things that need a clear yes.

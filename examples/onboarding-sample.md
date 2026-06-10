@@ -79,7 +79,7 @@ Here's what changed:
 - tasks/active.md has the first three tasks.
 - capability-map.md shows what is live now.
 - power-map.md has weekly review as the next possible power.
-- permission-map.md keeps sending, publishing, deleting, calendar, email, and app access gated.
+- permission-map.md marks sending, publishing, deleting, calendar, email, and app access as things that need a clear yes.
 
 One thing completed today:
 I turned the loose studio setup into a usable project list and first follow-up draft.

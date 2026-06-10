@@ -17,7 +17,7 @@ By the end, the user has:
 - A useful profile.
 - Goals and active tasks.
 - Preferences for tone, autonomy, explanation, taste, and standards.
-- Capability, power, and permission maps.
+- Three simple maps: what is live now, what could come next, and what needs a clear yes.
 - A useful working cadence, if one helps.
 - A few useful skills.
 - One real thing completed or clarified today.
@@ -59,10 +59,10 @@ If you can edit files:
 - Fill them in as the user answers.
 - Keep the public kit unchanged.
 
-If you are chat-only:
+If you are chat-only, treat this as the fallback:
 
 - Draft each file section as you go.
-- Keep the drafts organized so the user can paste them into files later.
+- Keep the drafts organized so the user can move into a file-editing agent or paste them into files later.
 
 Ask one question at a time. Skip anything the user already answered.
 
@@ -161,12 +161,12 @@ Create or update:
 
 - `profile/capability-map.md`: what the agent can do now.
 - `profile/power-map.md`: what it could grow into next.
-- `profile/permission-map.md`: what needs approval.
+- `profile/permission-map.md`: what needs a clear yes.
 - `home.md`: the first visible summary.
 
 Explain the difference in one sentence:
 
-> Capability is what is live now. Power is what we may add next. Permission is what needs approval.
+> Capability is what is live now. Power is what we may add next. Permission is what needs a clear yes.
 
 ### 4. Set Working Style
 
@@ -195,13 +195,17 @@ Ask:
 
 > How much should the assistant do on its own?
 
+Explain this plainly:
+
+> This is just how we keep the assistant moving fast on safe work while pausing for actions that touch other people, money, accounts, or public publishing.
+
 Good options:
 
 - Ask before changing anything.
 - Suggest changes, then wait.
-- Make safe updates quietly, ask for sensitive actions.
+- Make safe updates quietly, ask for bigger actions.
 
-Always require approval for:
+Always require a clear yes for:
 
 - Sending messages or email.
 - Publishing.
@@ -264,6 +268,7 @@ Recommend two to four skills that match the first useful result:
 - `skills/power-activation.md`
 - `skills/runtime-export.md`
 - `skills/vault-bridge.md`
+- `skills/skill-builder.md`
 - `skills/morning-brief.md`
 - `skills/evening-planning.md`
 - `skills/brain-dump-organizer.md`
@@ -273,6 +278,8 @@ Recommend two to four skills that match the first useful result:
 - `skills/assistant-checkup.md`
 
 Choose based on the user's first useful result. Do not force morning or evening skills if a project, research, client, or build workflow matters more.
+
+If the user's first useful result is something they will repeat, use `skills/skill-builder.md` to turn it into a saved workflow.
 
 ### 9. Discuss Power Layers
 
@@ -311,7 +318,7 @@ Pick one:
 - Save one lesson.
 - Choose the next power to activate.
 
-Write the result into the relevant file or show the exact draft if chat-only.
+Write the result into the relevant file. If this is the chat-only fallback, show the exact draft.
 
 Refresh `home.md` before the final summary.
 
@@ -330,7 +337,7 @@ What it can do now:
 
 What it could grow into next:
 
-What needs approval:
+What needs a clear yes:
 
 Useful skills:
 

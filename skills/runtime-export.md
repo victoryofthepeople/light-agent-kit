@@ -60,7 +60,7 @@ Taste and standards:
 
 Live capabilities:
 
-Approval gates:
+Clear yes rules:
 
 Lessons to preserve:
 
@@ -73,5 +73,5 @@ Source files used:
 
 - Do not include secrets, tokens, private account details, or raw sensitive notes.
 - Do not widen permissions in the export.
-- If the target runtime needs a specific file format, adapt the bundle but preserve the approval gates.
+- If the target runtime needs a specific file format, adapt the bundle but preserve the clear yes rules.
 - Keep the export compact. Link back to source files when the runtime can read them.

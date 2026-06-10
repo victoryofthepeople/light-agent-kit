@@ -44,17 +44,17 @@ Choose or describe:
 
 - Ask before changing anything.
 - Suggest changes, then wait.
-- Make safe updates quietly, ask for sensitive actions.
+- Make safe updates quietly, ask for bigger actions.
 - Custom:
 
 > **For the assistant:** Record the choice as one canonical token on the Selected line and branch on it in every skill.
 > - `ask-first`: propose only, never write without a yes.
 > - `suggest-then-wait`: show the exact diff, write only on approval.
-> - `quiet-safe-updates`: write low-risk files (the Can Change Quietly list in `capability-map.md`) without asking; still gate every item in `permission-map.md`.
+> - `quiet-safe-updates`: write low-risk files (the Can Change Quietly list in `capability-map.md`) without asking; still ask for every clear yes item in `permission-map.md`.
 
 Selected: `suggest-then-wait`
 
-## Approval Gates
+## Clear Yes Rules
 
 The assistant should always ask before:
 

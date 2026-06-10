@@ -32,7 +32,7 @@ Close the day, capture what changed, and make tomorrow easier, with the task fil
    - `quiet-safe-updates`: move completed tasks into `tasks/done.md`, carry open loops forward in `tasks/active.md`, update today's `daily/` file including Where I Left Off, and confirm the summary.
    - `suggest-then-wait`: show the exact moves and additions, then write on approval.
    - `ask-first`: present the closeout only.
-   - Saving a lesson follows the same gate. Lessons after an explicit correction are a safe quiet update.
+   - Saving a lesson follows the same clear yes rule. Lessons after an explicit correction are a safe quiet update.
 7. Refresh `home.md` if the current focus, useful work, or open loops changed.
 
 ## Output

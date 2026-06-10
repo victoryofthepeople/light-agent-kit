@@ -24,4 +24,4 @@ Run capability discovery and end by doing one useful thing.
 - Keep real personal files in a private folder or private repo.
 - Use the privacy checklist before publishing anything.
 - Ask Codex to explain file changes before large edits.
-- Keep approval gates in `profile/permission-map.md`.
+- Keep clear yes rules in `profile/permission-map.md`.

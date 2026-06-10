@@ -1,6 +1,6 @@
 # Start Here
 
-Use this page when you want an AI agent to set up Lumina for you.
+Use this page when you want an AI agent to set up Lumina with you.
 
 ## Agent Instruction
 
@@ -14,7 +14,7 @@ Paste the GitHub link into your AI agent and say:
 Onboard me with Lumina.
 ```
 
-That should be enough for a capable agent. The repo tells it what to read, what to build, what to ask, and how to keep your private workspace separate from the public kit.
+That should be enough for a capable file-editing agent. The repo tells it what to read, what to build, what to ask, and how to keep your private workspace separate from the public kit.
 
 ## If The Agent Needs More Direction
 
@@ -52,7 +52,7 @@ End by doing one useful thing for me today and refreshing home.md.
 - `home.md`: the current front page of your workspace.
 - `README.md`: the private workspace guide.
 - `profile/`: who you are, goals, preferences, taste, standards, capabilities, power, permissions.
-- `tasks/`: active work, completed work, lessons.
+- `tasks/`: active work, completed work, and lessons from corrections.
 - `daily/`: dated notes if a daily rhythm helps.
 - `projects/`: deeper context for work, business, clients, or ideas.
 - `knowledge/`: reusable notes and source-backed research when useful.
@@ -61,7 +61,7 @@ End by doing one useful thing for me today and refreshing home.md.
 
 ## What To Expect
 
-The agent should begin by learning what you are trying to do, build the workspace around that, and explain app access or integrations only when they help the next useful result.
+The agent should begin by learning what you are trying to do, build the workspace around that, and explain app access or integrations only when they help the next useful result. It should feel like setup that produces work, not a quiz.
 
 ## Good First Uses
 

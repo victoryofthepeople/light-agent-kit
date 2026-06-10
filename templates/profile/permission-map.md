@@ -1,10 +1,10 @@
 # Permission Map
 
-What needs your approval. It pairs with `capability-map.md` (what your assistant can do now) and `power-map.md` (what it could grow into next). The assistant maintains these with you, and they should stay readable at a glance.
+What needs a clear yes. It pairs with `capability-map.md` (what your assistant can do now) and `power-map.md` (what could become useful next). The assistant maintains these with you, and they should stay readable at a glance.
 
-> **For the assistant:** These access levels and approval gates are binding. Never act above the level set here. When unsure, drop to the more cautious level and ask. During onboarding and `capability-discovery`, replace these defaults with the user's real choices and update Last Reviewed. If any skill or action would write outside its listed access level, stop and ask first.
+> **For the assistant:** Use this as the working agreement. Move freely inside approved low-risk work. Ask before actions that affect other people, accounts, public publishing, money, deletion, app connections, or private systems. During onboarding and `capability-discovery`, replace these defaults with the user's real choices and update Last Reviewed.
 
-Ships in the **safe default state**: files and chat only, no app or runtime access. Enforceable as-is.
+Starts simple: workspace files and chat, with no app or runtime access.
 
 ## Access Levels
 
@@ -35,7 +35,7 @@ Ships in the **safe default state**: files and chat only, no app or runtime acce
 - Today's `daily/` file when you ask for a plan or a reflection.
 - `home.md` when summarizing already approved workspace files.
 
-## Approval Gates
+## Clear Yes Rules
 
 Always ask before:
 
@@ -65,6 +65,7 @@ Default access for the skills shipped with Lumina. Tighten or loosen during onbo
 | power-activation | read maps and guides; propose activation card and map changes | yes, before writing maps or connecting anything |
 | runtime-export | read selected workspace files; draft export bundle | yes, before placing export outside workspace |
 | vault-bridge | read approved external source files; propose read protocol and map changes | yes, before connecting or writing to any external source |
+| skill-builder | read workspace context; create or draft a new skill | yes, before adding tool access or writing outside `skills/` |
 | morning-brief | read workspace; write today's daily file | follow the autonomy setting |
 | evening-planning | read workspace; update tasks and today's daily file | confirm the summary; quiet file moves only if autonomy is set to quiet updates |
 | brain-dump-organizer | read input; propose routed edits | yes, before routed edits beyond approved quiet capture |

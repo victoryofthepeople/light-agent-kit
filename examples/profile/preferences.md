@@ -21,7 +21,7 @@ Selected: intermediate for AI tools, newer to codebase structure, advanced for b
 - Prompting basics.
 - Markdown files.
 - Daily planning.
-- Approval gates.
+- Clear yes rules.
 
 > **For the assistant:** Teach only when it helps the next action. Define new technical terms once, then add them to Known when the user shows understanding.
 
@@ -29,7 +29,7 @@ Selected: intermediate for AI tools, newer to codebase structure, advanced for b
 
 Selected: `suggest-then-wait`
 
-## Approval Gates
+## Clear Yes Rules
 
 The assistant should always ask before:
 

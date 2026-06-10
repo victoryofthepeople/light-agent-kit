@@ -55,7 +55,7 @@ What this assistant can do now. It pairs with `power-map.md` and `permission-map
 - Obsidian sync.
 - Scheduled runtime automation.
 
-Approval gates live in `permission-map.md`.
+Clear yes rules live in `permission-map.md`.
 
 ## Growing Next
 

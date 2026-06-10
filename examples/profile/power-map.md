@@ -71,9 +71,9 @@ Possible runtime direction:
 - Local: current.
 - VPS or always-on: not needed yet.
 
-## Approval Gates
+## Clear Yes Rules
 
-Every power above stays gated until approved. The binding gates live in `permission-map.md`.
+Every power above waits for a clear yes before it becomes active. The working rules live in `permission-map.md`.
 
 ## Next Activation
 
