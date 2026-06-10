@@ -50,7 +50,8 @@ This is the skill that turns Light Agent Kit from a set of files into an assista
    - `profile/permission-map.md`: access levels, clear yes rules, and the App or Skill rows that changed.
    - `home.md`: a short current summary of what changed, what the assistant can do now, and the next power to consider.
    - `power/POWER-NAME.md`: a proposed activation card if the picked move needs app access, messaging, scheduled work, or another runtime before it can go live.
-   - Set Last Reviewed to today on all three.
+   - `profile/capability-dashboard.md`: rebuild the one-page glance from the three maps.
+   - Set Last Reviewed to today on all three maps and the dashboard.
 6. Confirm in one short summary what the assistant can now do, the one power it will grow into next, what still needs approval, and the one thing it will do next to prove it.
 
 ## Translation
@@ -88,6 +89,7 @@ Map changes to apply (with approval):
 - capability-map.md (now):
 - power-map.md (next):
 - permission-map.md (approval):
+- capability-dashboard.md (the glance, rebuilt last):
 - home.md (front page):
 - power activation card, if needed:
 

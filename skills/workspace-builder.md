@@ -45,6 +45,7 @@ Use this when the assistant can edit files directly.
    - `templates/profile/capability-map.md` -> `profile/capability-map.md`
    - `templates/profile/power-map.md` -> `profile/power-map.md`
    - `templates/profile/permission-map.md` -> `profile/permission-map.md`
+   - `templates/profile/capability-dashboard.md` -> `profile/capability-dashboard.md`
    - `templates/tasks/active.md` -> `tasks/active.md`
    - `templates/tasks/done.md` -> `tasks/done.md`
    - `templates/tasks/lessons.md` -> `tasks/lessons.md`

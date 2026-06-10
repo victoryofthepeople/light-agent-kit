@@ -17,6 +17,7 @@ If you want a README inside the private workspace, copy `workspace-readme.md` an
 - `profile/capability-map.md`
 - `profile/power-map.md`
 - `profile/permission-map.md`
+- `profile/capability-dashboard.md`
 - `tasks/active.md`
 - `tasks/done.md`
 - `tasks/lessons.md`

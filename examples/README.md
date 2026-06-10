@@ -6,7 +6,7 @@ They show what a Light Agent Kit workspace can look like after onboarding. Use t
 
 The knowledge examples show both simple notes and the stronger source -> brief -> concept flow.
 
-The power map example shows how a user can see future agent capabilities without turning everything on at once.
+The power map example shows how a user can see future agent capabilities without turning everything on at once. The capability dashboard example shows all three maps condensed to one glance.
 
 The connected workspace example shows a fictional stronger setup with phone capture, read-only calendar awareness, scheduled reviews, and clear yes rules.
 

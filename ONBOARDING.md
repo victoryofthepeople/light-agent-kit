@@ -18,6 +18,7 @@ By the end, the user has:
 - Goals and active tasks.
 - Preferences for tone, autonomy, explanation, taste, and standards.
 - Three simple maps: what is live now, what could come next, and what needs a clear yes.
+- A one-page capability dashboard that shows all three maps at a glance.
 - A useful working cadence, if one helps.
 - A few useful skills.
 - One real thing completed or clarified today.
