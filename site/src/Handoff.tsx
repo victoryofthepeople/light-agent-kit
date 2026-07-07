@@ -71,7 +71,7 @@ export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderN
         {files.length} files, written from your own words. From here, your chosen AI receives only the files you hand it.
       </p>
 
-      <button className="btn-glow wide" onClick={download}>
+      <button className="btn-primary wide" onClick={download}>
         Download {folderName}.zip
       </button>
 
@@ -103,7 +103,7 @@ export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderN
       <div className="firstask">
         <div className="firstask-row">
           <code>{FIRST_ASK}</code>
-          <button className="btn-quiet" onClick={copyAsk}>
+          <button className="btn-secondary" onClick={copyAsk}>
             {copied ? "Copied ✓" : "Copy"}
           </button>
         </div>

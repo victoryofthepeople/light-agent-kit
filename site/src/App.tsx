@@ -110,9 +110,11 @@ export default function App() {
   return (
     <div className="app">
       <header className="topbar">
+        {phase !== "intro" && (
         <div className="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Setup progress">
           <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
+        )}
         <button className="icon-btn" onClick={() => setDark(!dark)} aria-label="Toggle light or dark mode">
           <SunIcon dark={dark} />
         </button>
@@ -122,7 +124,7 @@ export default function App() {
 
       {phase === "interview" && q && (
         <main className={`stage${panelVisible ? " with-panel" : ""}`}>
-          <section className="card interview">
+          <section className="card interview" key={qi}>
             <p className="qcount">
               {qi + 1} / {questions.length}
             </p>
@@ -180,7 +182,7 @@ export default function App() {
             )}
 
             <div className="qactions">
-              <button className="btn-quiet" onClick={() => submit(q.kind === "chips-multi" ? [] : "")}>
+              <button className="btn-skip" onClick={() => submit(q.kind === "chips-multi" ? [] : "")}>
                 Skip
               </button>
               {q.kind !== "chips" && (
@@ -216,6 +218,7 @@ export default function App() {
         </main>
       )}
 
+      {phase !== "intro" && (
       <footer className="foot">
         <span>Everything stays on this device. No account, no cookies, no analytics.</span>
         <span className="foot-right">
@@ -227,6 +230,7 @@ export default function App() {
           </button>
         </span>
       </footer>
+      )}
     </div>
   );
 }
