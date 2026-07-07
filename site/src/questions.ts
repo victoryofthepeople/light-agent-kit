@@ -74,20 +74,11 @@ export function buildQuestionList(route: RouteKey | null): Question[] {
   return [
     { id: "name", prompt: "What's your first name?", hint: "Just so your workspace knows whose it is.", kind: "text" },
     { id: "days", prompt: "What fills most of your days?", hint: "A sentence or a ramble. Both work.", kind: "text", mic: true },
-    { id: "route", prompt: "Where should your AI help first?", hint: "This picks the first room we build. You can add the others later.", kind: "chips", chips: ROUTE_CHIPS },
+    { id: "route", prompt: "Where should your AI help first?", hint: "Every room comes in your download. This picks where we go deep today.", kind: "chips", chips: ROUTE_CHIPS },
     ...roomQuestions[r],
     { id: "boundaries", prompt: "What should your AI always check with you before doing?", hint: "Good assistants ask first. This makes it a rule.", kind: "chips-multi", chips: BOUNDARY_CHIPS },
     { id: "tone", prompt: "How should it talk to you?", kind: "chips", chips: TONE_CHIPS },
-    { id: "dump", prompt: "Last one — the fun one. Empty your head.", hint: "Tasks, worries, ideas, half-thoughts. Messy is perfect. Go as long as you want.", kind: "dump", mic: true },
+    { id: "dump", prompt: "Last one, the fun one. Empty your head.", hint: "Tasks, worries, ideas, half-thoughts. Messy is perfect. Go as long as you want.", kind: "dump", mic: true },
   ];
 }
 
-export const MANIFESTO_LINES: { text: string; small?: string }[] = [
-  { text: "AI is moving faster than any technology before it." },
-  { text: "Half of workers say they're worried about it. A third feel overwhelmed.", small: "Pew Research, 2025" },
-  { text: "You're not behind. The tools were just built for engineers." },
-  { text: "The secret isn't code. It's folders and files your AI can read." },
-  { text: "This was built to help friends and family set up their own AI workspace. Now it's here for you." },
-  { text: "Nothing you type leaves this device. No account. No server. Nothing stored." },
-  { text: "15 minutes. 10 questions. You leave with a folder your AI actually understands." },
-];

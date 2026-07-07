@@ -8,14 +8,14 @@ const TARGETS: { key: Target; label: string; what: string; steps: string[]; link
   {
     key: "cowork",
     label: "Claude Cowork",
-    what: "Claude's desktop app working inside a folder — no terminal, no code. The easiest full experience.",
-    steps: ["Unzip your download — you'll get one folder.", "Open the Claude desktop app and start a Cowork session in that folder.", "Paste the first ask below."],
+    what: "Claude's desktop app working inside a folder. No terminal, no code. The easiest full experience.",
+    steps: ["Unzip your download. You'll get one folder.", "Open the Claude desktop app and start a Cowork session in that folder.", "Paste the first ask below."],
     link: { href: "https://claude.ai/download", label: "Get the Claude app" },
   },
   {
     key: "code",
     label: "Claude Code",
-    what: "Claude in your terminal, reading and editing files directly. The most powerful path — and it's two commands.",
+    what: "Claude in your terminal, reading and editing files directly. The most powerful path, and it's two commands.",
     steps: ["Unzip your download.", "In the terminal: cd into the folder, then type claude", "Paste the first ask below."],
   },
   {
@@ -28,7 +28,7 @@ const TARGETS: { key: Target; label: string; what: string; steps: string[]; link
   {
     key: "chatgpt",
     label: "ChatGPT",
-    what: "Works too — same folder, different assistant.",
+    what: "Works too. Same folder, different assistant.",
     steps: ["Unzip your download.", "Start a chat and attach the files (or paste them).", "Paste the first ask below.", "It can't edit files here — it hands you updated copies to save."],
     link: { href: "https://chatgpt.com", label: "Open ChatGPT" },
   },

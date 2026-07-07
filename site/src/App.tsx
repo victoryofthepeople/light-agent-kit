@@ -34,7 +34,7 @@ const store = {
 };
 
 const TEACHING: Record<string, string> = {
-  name: "There it is — your first file. Everything you share becomes readable text like this.",
+  name: "There it is. Your first file. Everything you share becomes readable text like this.",
   route: "home.md just got a map: which file to read for which job. It's why your AI won't get lost.",
   boundaries: "These rules ride along in every session. Your AI asks first, every time.",
   dump: "Your AI's first job will be organizing all of that. You never have to.",
@@ -120,7 +120,7 @@ export default function App() {
         </button>
       </header>
 
-      {phase === "intro" && <Intro onDone={() => setPhase("interview")} />}
+      {phase === "intro" && <Intro dark={dark} onDone={() => setPhase("interview")} />}
 
       {phase === "interview" && q && (
         <main className={`stage${panelVisible ? " with-panel" : ""}`}>

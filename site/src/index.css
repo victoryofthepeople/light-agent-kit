@@ -141,6 +141,7 @@ body {
 }
 
 h1.intro-line {
+  text-wrap: balance;
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 4.6vw + 0.5rem, 3.4rem);
@@ -163,10 +164,12 @@ h1.intro-line {
 }
 
 .intro-secret h1.intro-line {
+  text-wrap: balance;
   font-size: clamp(1.8rem, 3.6vw + 0.5rem, 2.8rem);
 }
 
 .intro-sub {
+  text-wrap: pretty;
   font-size: 16px;
   color: var(--muted);
   max-width: 560px;
@@ -278,18 +281,6 @@ h1.intro-line {
   transform: translateY(0) scale(0.99);
 }
 
-.btn-primary::after,
-.btn-secondary::after {
-  content: "";
-  position: absolute;
-  inset: 1px;
-  z-index: -1;
-  border-radius: calc(0.65rem - 1px);
-  background: linear-gradient(105deg, transparent 12%, rgba(255, 255, 255, 0.11) 48%, transparent 82%);
-  opacity: 0.42;
-  pointer-events: none;
-}
-
 /* click-me: sunset orbit */
 .btn-primary {
   color: #f8f4ef;
@@ -324,11 +315,6 @@ h1.intro-line {
     conic-gradient(from calc(var(--ventari-orbit, 0deg) + 315deg), rgba(255, 177, 116, 0.62) 0%, rgba(255, 177, 116, 0.62) 24%, rgba(245, 139, 212, 0.48) 42%, rgba(157, 124, 255, 0.54) 62%, rgba(120, 232, 255, 0.5) 82%, rgba(255, 177, 116, 0.62) 100%) border-box;
   box-shadow: 0 12px 30px rgba(13, 18, 29, 0.09), 0 0 14px rgba(255, 177, 116, 0.09), 0 0 16px rgba(245, 139, 212, 0.075),
     0 0 14px rgba(120, 232, 255, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(13, 18, 29, 0.055);
-}
-
-:root[data-theme="light"] .btn-primary::after {
-  background: linear-gradient(105deg, transparent 12%, rgba(255, 255, 255, 0.78) 48%, transparent 82%);
-  opacity: 0.58;
 }
 
 :root[data-theme="light"] .btn-primary:hover,
@@ -444,6 +430,7 @@ h1.intro-line {
 }
 
 .qprompt {
+  text-wrap: balance;
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(1.35rem, 2vw + 0.4rem, 1.7rem);
   font-weight: 700;
@@ -452,6 +439,7 @@ h1.intro-line {
 }
 
 .qhint {
+  text-wrap: pretty;
   color: var(--muted);
   margin: 0 0 18px;
   font-size: 14px;
@@ -878,4 +866,27 @@ h1.intro-line {
   .filepanel {
     max-height: 60vh;
   }
+}
+
+.cta-beam {
+  display: inline-flex;
+  --beam-stroke-opacity: 1.45;
+  --beam-inner-opacity: 0.7;
+  --beam-bloom-opacity: 0.5;
+}
+
+.lockline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-family: Inter, sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.lockline svg {
+  width: 12px;
+  height: 12px;
 }
