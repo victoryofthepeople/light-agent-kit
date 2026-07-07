@@ -1,0 +1,33 @@
+name: privacy-guard
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: No private paths tracked
+        run: |
+          FORBIDDEN='^(research/|maintainers/|tasks/|daily/|profile/|projects/|ideas/|knowledge/|private|personal/|workspace/|my-workspace/|PLAN\.md|PLAN-REVIEW-LOG\.md)'
+          leaks=$(git ls-files | grep -E "$FORBIDDEN" || true)
+          if [ -n "$leaks" ]; then echo "::error::Private paths tracked:"; echo "$leaks"; exit 1; fi
+
+      - name: No claude-mem contamination in public instruction files
+        run: |
+          if grep -l "claude-mem-context" AGENTS.md CLAUDE.md 2>/dev/null; then
+            echo "::error::claude-mem private memory block found in a public instruction file"; exit 1
+          fi
+
+      - name: No secret patterns
+        run: |
+          hits=$(git grep -l -E 'sk-ant-|sk-proj-|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|-----BEGIN (RSA|EC|OPENSSH) PRIVATE KEY' -- . ':!.github/workflows/privacy-guard.yml' || true)
+          if [ -n "$hits" ]; then echo "::error::Possible secrets:"; echo "$hits"; exit 1; fi
+
+      - name: No local machine paths
+        run: |
+          hits=$(git grep -l "/Users/championii" -- . ':!.github/workflows/privacy-guard.yml' || true)
+          if [ -n "$hits" ]; then echo "::error::Local machine paths found:"; echo "$hits"; exit 1; fi

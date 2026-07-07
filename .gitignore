@@ -1,0 +1,58 @@
+.DS_Store
+
+# Local environment and secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Private user workspaces
+/profile/
+/tasks/
+/daily/
+/projects/
+/ideas/
+/knowledge/
+/private/
+/private-*/
+/local/
+/workspace/
+/my-workspace/
+/agent-workspace/
+/personal/
+/maintainers/
+/research/
+/research-output/
+
+# Logs and generated output
+logs/
+*.log
+tmp/
+temp/
+
+# Tool caches
+.cache/
+.codex/
+.claude/
+
+# OS and editor files
+.idea/
+.vscode/
+
+# Working docs (local only)
+PLAN.md
+PLAN-REVIEW-LOG.md
+
+# Site-era artifacts (pre-added before site/ exists)
+node_modules/
+dist/
+.vercel/
+playwright-report/
+test-results/
+*.webm
+*.wav
+*.mp3
+*.onnx
+*.bin
