@@ -3,10 +3,10 @@ import { buildQuestionList, type Question } from "./questions";
 import { buildFiles, getRoute, sanitizeSlug, type Answers } from "./templates";
 import { FilePanel } from "./FilePanel";
 import { Handoff } from "./Handoff";
-import { Manifesto } from "./Manifesto";
+import { Intro } from "./Intro";
 import "./index.css";
 
-type Phase = "manifesto" | "interview" | "handoff";
+type Phase = "intro" | "interview" | "handoff";
 
 const store = {
   get(): { phase: Phase; qi: number; answers: Answers } | null {
@@ -21,7 +21,7 @@ const store = {
     try {
       localStorage.setItem("lak-draft", JSON.stringify(v));
     } catch {
-      /* Safari private mode etc. — session continues in memory */
+      /* private mode — session continues in memory */
     }
   },
   clear() {
@@ -34,14 +34,28 @@ const store = {
 };
 
 const TEACHING: Record<string, string> = {
-  days: "That's your AI's first memory of you. Plain text. You can read and edit it anytime.",
+  name: "There it is — your first file. Everything you share becomes readable text like this.",
   route: "home.md just got a map: which file to read for which job. It's why your AI won't get lost.",
-  dump: "Your AI's first job will be organizing this. You never had to.",
+  boundaries: "These rules ride along in every session. Your AI asks first, every time.",
+  dump: "Your AI's first job will be organizing all of that. You never have to.",
 };
+
+function SunIcon({ dark }: { dark: boolean }) {
+  return dark ? (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" />
+    </svg>
+  ) : (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+    </svg>
+  );
+}
 
 export default function App() {
   const saved = useMemo(() => store.get(), []);
-  const [phase, setPhase] = useState<Phase>(saved?.phase ?? "manifesto");
+  const [phase, setPhase] = useState<Phase>(saved?.phase ?? "intro");
   const [qi, setQi] = useState(saved?.qi ?? 0);
   const [answers, setAnswers] = useState<Answers>(saved?.answers ?? {});
   const [draft, setDraft] = useState("");
@@ -52,7 +66,7 @@ export default function App() {
     "Posting anything publicly",
   ]);
   const [teach, setTeach] = useState<string | null>(null);
-  const [dark, setDark] = useState<boolean>(() => window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false);
+  const [dark, setDark] = useState<boolean>(() => window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? true);
 
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? "dark" : "light";
@@ -65,19 +79,21 @@ export default function App() {
   const route = getRoute(answers);
   const questions = useMemo(() => buildQuestionList(route), [route]);
   const q: Question | undefined = questions[qi];
-  const files = useMemo(() => buildFiles(answers), [answers]);
-  const name = typeof answers.name === "string" ? answers.name : "";
+  const previewFiles = useMemo(() => buildFiles(answers, "preview"), [answers]);
+  const downloadFiles = useMemo(() => buildFiles(answers, "download"), [answers]);
+  const name = typeof answers.name === "string" ? answers.name.trim() : "";
   const folderName = `${sanitizeSlug(name)}-workspace`;
+  const panelVisible = phase === "handoff" || (phase === "interview" && previewFiles.length > 0);
 
-  const progress = phase === "manifesto" ? 8 : phase === "handoff" ? 100 : 15 + Math.round((qi / questions.length) * 80);
+  const progress = phase === "intro" ? 6 : phase === "handoff" ? 100 : 12 + Math.round((qi / questions.length) * 88);
 
   function submit(value: string | string[]) {
     if (!q) return;
-    const next = { ...answers, [q.id]: value };
-    setAnswers(next);
+    setAnswers({ ...answers, [q.id]: value });
     setDraft("");
-    if (TEACHING[q.id]) {
-      setTeach(TEACHING[q.id]);
+    const lesson = TEACHING[q.id];
+    if (lesson && (typeof value === "string" ? value : value.length)) {
+      setTeach(lesson);
       setTimeout(() => setTeach(null), 5200);
     }
     if (qi + 1 >= questions.length) setPhase("handoff");
@@ -88,46 +104,43 @@ export default function App() {
     store.clear();
     setAnswers({});
     setQi(0);
-    setPhase("manifesto");
+    setPhase("intro");
   }
 
   return (
     <div className="app">
       <header className="topbar">
-        <span className="brand">Light Agent Kit</span>
-        <div className="topbar-right">
-          <div className="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Setup progress">
-            <div className="progress-fill" style={{ width: `${progress}%` }} />
-          </div>
-          <button className="ghost small" onClick={() => setDark(!dark)} aria-label="Toggle light or dark mode">
-            {dark ? "Light" : "Dark"}
-          </button>
+        <div className="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Setup progress">
+          <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
+        <button className="icon-btn" onClick={() => setDark(!dark)} aria-label="Toggle light or dark mode">
+          <SunIcon dark={dark} />
+        </button>
       </header>
 
-      {phase === "manifesto" && <Manifesto onDone={() => setPhase("interview")} />}
+      {phase === "intro" && <Intro onDone={() => setPhase("interview")} />}
 
       {phase === "interview" && q && (
-        <main className="split">
-          <section className="interview">
+        <main className={`stage${panelVisible ? " with-panel" : ""}`}>
+          <section className="card interview">
             <p className="qcount">
-              Question {qi + 1} of {questions.length}
+              {qi + 1} / {questions.length}
             </p>
             <h2 className="qprompt">{q.prompt}</h2>
             {q.hint && <p className="qhint">{q.hint}</p>}
 
             {(q.kind === "text" || q.kind === "dump") && (
-              <>
-                <textarea
-                  className={q.kind === "dump" ? "dumpbox" : "textbox"}
-                  value={draft}
-                  onChange={(e) => setDraft(e.target.value.slice(0, 20000))}
-                  placeholder={q.kind === "dump" ? "Everything on your mind…" : "Type here…"}
-                  rows={q.kind === "dump" ? 8 : 3}
-                  autoFocus
-                />
-                {q.mic && <p className="micnote">Voice input is coming — it will run entirely on this device.</p>}
-              </>
+              <textarea
+                className={q.kind === "dump" ? "field dumpbox" : "field"}
+                value={draft}
+                onChange={(e) => setDraft(e.target.value.slice(0, 20000))}
+                placeholder={q.kind === "dump" ? "Everything on your mind…" : "Type here…"}
+                rows={q.kind === "dump" ? 7 : 3}
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) submit(draft.trim());
+                }}
+              />
             )}
 
             {q.kind === "chips" && (
@@ -152,14 +165,13 @@ export default function App() {
                         className={`chip${on ? " selected" : ""}`}
                         onClick={() => setMulti(on ? multi.filter((v) => v !== c.value) : [...multi, c.value])}
                       >
-                        {on ? "✓ " : ""}
                         {c.label}
                       </button>
                     );
                   })}
                 </div>
                 <input
-                  className="textbox"
+                  className="field"
                   value={draft}
                   onChange={(e) => setDraft(e.target.value.slice(0, 500))}
                   placeholder="Anything else it should always ask about? (optional)"
@@ -168,12 +180,12 @@ export default function App() {
             )}
 
             <div className="qactions">
-              <button className="ghost" onClick={() => submit(q.kind === "chips-multi" ? [] : "")}>
+              <button className="btn-quiet" onClick={() => submit(q.kind === "chips-multi" ? [] : "")}>
                 Skip
               </button>
               {q.kind !== "chips" && (
                 <button
-                  className="primary"
+                  className="btn-primary"
                   onClick={() => {
                     if (q.kind === "chips-multi") {
                       if (draft.trim()) setAnswers((a) => ({ ...a, "boundaries-extra": draft.trim() }));
@@ -181,7 +193,7 @@ export default function App() {
                     } else submit(draft.trim());
                   }}
                 >
-                  Next →
+                  Next
                 </button>
               )}
             </div>
@@ -193,26 +205,25 @@ export default function App() {
             )}
           </section>
 
-          <FilePanel files={files} folderName={folderName} activeIds={q ? [q.id] : []} />
+          {panelVisible && <FilePanel files={previewFiles} folderName={folderName} activeIds={q ? [q.id] : []} showEducation={qi <= 2} />}
         </main>
       )}
 
       {phase === "handoff" && (
-        <main className="split">
-          <Handoff files={files} folderName={folderName} />
-          <FilePanel files={files} folderName={folderName} activeIds={[]} />
+        <main className="stage with-panel">
+          <Handoff files={downloadFiles} folderName={folderName} />
+          <FilePanel files={downloadFiles} folderName={folderName} activeIds={[]} showEducation={false} />
         </main>
       )}
 
       <footer className="foot">
-        <span>No accounts. No cookies. No analytics. Everything stays on this device.</span>
+        <span>Everything stays on this device. No account, no cookies, no analytics.</span>
         <span className="foot-right">
           <a href="https://github.com/victoryofthepeople/light-agent-kit" target="_blank" rel="noreferrer">
             Open source
           </a>
-          {" · "}
           <button className="linklike" onClick={startOver}>
-            Start over (wipes your draft)
+            Start over
           </button>
         </span>
       </footer>

@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import type { GeneratedFile } from "./templates";
+import { Markdown } from "./Markdown";
 
-export function FilePanel({ files, folderName, activeIds }: { files: GeneratedFile[]; folderName: string; activeIds: string[] }) {
+export function FilePanel({ files, folderName, activeIds, showEducation }: { files: GeneratedFile[]; folderName: string; activeIds: string[]; showEducation: boolean }) {
   const activeFile = useMemo(() => {
     const hit = files.find((f) => f.touchedBy.some((id) => activeIds.includes(id)));
-    return hit ?? files.find((f) => f.path === "home.md") ?? files[0];
+    return hit ?? files[files.length - 1];
   }, [files, activeIds]);
 
   const [openPath, setOpenPath] = useState<string | null>(null);
@@ -27,28 +28,39 @@ export function FilePanel({ files, folderName, activeIds }: { files: GeneratedFi
 
   return (
     <aside className="filepanel" aria-label="Your workspace, building as you answer">
-      <p className="filepanel-title">
-        <span aria-hidden="true">▸ </span>
-        {folderName} <span className="muted">— building as you answer</span>
-      </p>
-      <div className="tree" role="list">
-        {grouped.roots.map((f) => (
-          <TreeItem key={f.path} file={f} depth={0} open={shown?.path === f.path} active={f.path === activeFile?.path} onOpen={setOpenPath} />
-        ))}
-        {[...grouped.rooms.entries()].map(([dir, fs]) => (
-          <div key={dir}>
-            <p className="tree-dir">{dir}/</p>
-            {fs.map((f) => (
-              <TreeItem key={f.path} file={f} depth={1} open={shown?.path === f.path} active={f.path === activeFile?.path} onOpen={setOpenPath} />
-            ))}
-          </div>
-        ))}
+      <div className="filepanel-head">
+        <span className="folder-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </span>
+        <span className="filepanel-name">{folderName}</span>
       </div>
-      {shown && (
-        <div className="file-preview" aria-live="polite">
-          <p className="file-preview-name">{shown.path}</p>
-          <pre>{shown.content}</pre>
-        </div>
+
+      <div className="filepanel-body">
+        <nav className="tree" role="list">
+          {grouped.roots.map((f) => (
+            <TreeItem key={f.path} file={f} depth={0} open={shown?.path === f.path} active={f.path === activeFile?.path} onOpen={setOpenPath} />
+          ))}
+          {[...grouped.rooms.entries()].map(([dir, fs]) => (
+            <div key={dir} className="tree-appear">
+              <p className="tree-dir">{dir}/</p>
+              {fs.map((f) => (
+                <TreeItem key={f.path} file={f} depth={1} open={shown?.path === f.path} active={f.path === activeFile?.path} onOpen={setOpenPath} />
+              ))}
+            </div>
+          ))}
+        </nav>
+
+        {shown && (
+          <div className="file-view" aria-live="polite" key={shown.path + shown.content.length}>
+            <Markdown text={shown.content} />
+          </div>
+        )}
+      </div>
+
+      {showEducation && (
+        <p className="filepanel-edu">
+          This is a real folder. Each file is markdown — a lightweight document format AI reads best. Yours to keep, open, and edit anywhere.
+        </p>
       )}
     </aside>
   );
@@ -57,9 +69,9 @@ export function FilePanel({ files, folderName, activeIds }: { files: GeneratedFi
 function TreeItem({ file, depth, open, active, onOpen }: { file: GeneratedFile; depth: number; open: boolean; active: boolean; onOpen: (p: string) => void }) {
   const name = file.path.split("/").pop();
   return (
-    <button type="button" role="listitem" className={`tree-item${open ? " open" : ""}${active ? " active" : ""}`} style={{ paddingLeft: `${8 + depth * 16}px` }} onClick={() => onOpen(file.path)}>
+    <button type="button" role="listitem" className={`tree-item tree-appear${open ? " open" : ""}${active ? " active" : ""}`} style={{ paddingLeft: `${10 + depth * 14}px` }} onClick={() => onOpen(file.path)}>
+      <span className="tree-dot" aria-hidden="true" />
       {name}
-      {active && <span className="writing"> · writing…</span>}
     </button>
   );
 }
