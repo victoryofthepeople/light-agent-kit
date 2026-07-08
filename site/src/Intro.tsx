@@ -1,12 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BorderBeam } from "border-beam";
 
 const BEAT1 = ["AI is moving fast.", "It can be overwhelming.", "You're not behind."];
 const DELAYS = ["0s", "1.1s", "2.4s"];
 
+const CAPTIONS = [
+  "A normal chat only knows what you type into it.",
+  "Close it, and it forgets you.",
+  "Now hand it a few files about your world.",
+  "It reads them first. Same AI, suddenly yours.",
+];
+
+/** stage: 0 chat+generic · 1 forgets caption · 2 files dock in · 3 personal reply · 4 CTA */
 export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
-  const [beat, setBeat] = useState<1 | 2>(1);
+  const [beat, setBeat] = useState<1 | 2 | 3>(1);
   const [leaving, setLeaving] = useState(false);
+  const [stage, setStage] = useState(0);
+  const theme = dark ? "dark" : "light";
+  const reduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   function advance(next: () => void) {
     setLeaving(true);
@@ -16,7 +27,28 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
     }, 380);
   }
 
-  const theme = dark ? "dark" : "light";
+  // beat 2 auto-dissolves into the explainer
+  useEffect(() => {
+    if (beat !== 2) return;
+    const t = setTimeout(() => advance(() => setBeat(3)), reduced ? 400 : 2600);
+    return () => clearTimeout(t);
+  }, [beat, reduced]);
+
+  // beat 3 stage machine
+  useEffect(() => {
+    if (beat !== 3) return;
+    if (reduced) {
+      setStage(4);
+      return;
+    }
+    const timers = [
+      setTimeout(() => setStage(1), 2600),
+      setTimeout(() => setStage(2), 4600),
+      setTimeout(() => setStage(3), 6000),
+      setTimeout(() => setStage(4), 8000),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, [beat, reduced]);
 
   if (beat === 1) {
     return (
@@ -40,44 +72,72 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
     );
   }
 
-  return (
-    <div className={`intro${leaving ? " leaving" : ""}`}>
-      <div className="intro-secret">
-        <h1 className="intro-line" style={{ animationDelay: "0.1s" }}>
-          The secret is context.
-        </h1>
-        <p className="intro-sub intro-line" style={{ animationDelay: "0.9s" }}>
-          AI reads whatever words you give it.
-          <br />
-          That text is its whole world.
-        </p>
-        <p className="intro-sub intro-line" style={{ animationDelay: "1.8s" }}>
-          Give it a few simple files about you and your work,
-          <br />
-          and the same AI starts working like it's yours.
-        </p>
-        <ol className="intro-steps intro-line" style={{ animationDelay: "2.7s" }}>
-          <li>
-            <span>1</span>Answer 10 quick questions
-          </li>
-          <li>
-            <span>2</span>Watch your files get written, live
-          </li>
-          <li>
-            <span>3</span>Download your workspace and hand it to Claude or ChatGPT
-          </li>
-        </ol>
-        <p className="intro-trust intro-line" style={{ animationDelay: "3.3s" }}>
-          Everything stays on this device. No account. Nothing stored.
-        </p>
+  if (beat === 2) {
+    return (
+      <div className={`intro${leaving ? " leaving" : ""}`}>
+        <h1 className="intro-line">The secret is context.</h1>
       </div>
-      <div className="intro-line" style={{ animationDelay: "3.8s" }}>
-        <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
-          <button className="btn-primary" onClick={() => advance(onDone)}>
-            Build my workspace
-            <Arrow />
+    );
+  }
+
+  return (
+    <div className={`intro intro-explain${leaving ? " leaving" : ""}`}>
+      <div className="explain-card intro-line">
+        <div className="explain-visual">
+          <div className="mini-chat">
+            <p className="mini-chat-title">{stage < 2 ? "A normal chat" : "The same chat, with your files"}</p>
+            <div className="bubble user">Plan my week</div>
+            {stage < 3 ? (
+              <div className="bubble ai muted-bubble">
+                Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Remember to take breaks…
+              </div>
+            ) : (
+              <div className="bubble ai personal-bubble">
+                Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries,
+                ready for your yes.
+              </div>
+            )}
+            {stage === 1 && <p className="chat-reset">chat closed… memory gone</p>}
+          </div>
+
+          <div className={`mini-folder${stage >= 2 ? " docked" : ""}`} aria-hidden={stage < 2}>
+            <p className="mini-folder-title">
+              <FolderIcon /> your workspace
+            </p>
+            {["me.md", "work / current.md", "boundaries.md"].map((f, i) => (
+              <span className="mini-file" style={{ animationDelay: `${0.15 * i + 0.1}s` }} key={f}>
+                {f}
+              </span>
+            ))}
+            <span className="beamline" />
+          </div>
+        </div>
+
+        <div className="explain-captions" aria-live="polite">
+          {CAPTIONS.map((c, i) => {
+            const visible = (i === 0 && stage >= 0) || (i === 1 && stage >= 1) || (i === 2 && stage >= 2) || (i === 3 && stage >= 3);
+            return visible ? (
+              <p className={`explain-caption${(i === 1 && stage >= 2) || (i === 0 && stage >= 2) ? " dimmed" : ""}`} key={i}>
+                {c}
+              </p>
+            ) : null;
+          })}
+        </div>
+
+        {stage >= 4 ? (
+          <div className="explain-cta intro-line">
+            <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
+              <button className="btn-primary" onClick={() => advance(onDone)}>
+                Create your personal OS
+                <Arrow />
+              </button>
+            </BorderBeam>
+          </div>
+        ) : (
+          <button className="btn-skip explain-skip" onClick={() => setStage(4)}>
+            Skip
           </button>
-        </BorderBeam>
+        )}
       </div>
     </div>
   );
@@ -87,6 +147,14 @@ function Arrow() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+function FolderIcon() {
+  return (
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
     </svg>
   );
 }
