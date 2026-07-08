@@ -1,26 +1,38 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BorderBeam } from "border-beam";
 
 const BEAT1 = ["AI is moving fast.", "It can be overwhelming.", "You're not behind."];
 const DELAYS = ["0s", "1.1s", "2.4s"];
 
-const CAPTIONS = [
-  "A normal chat only knows what you type into it.",
-  "Chat apps do have memory now. But it's thin, hidden, and belongs to their app.",
-  "This is a second brain you own. Plain files your AI reads before it answers.",
-  "Save how you think, and it compounds. The repeat work becomes something you hand off.",
-  "No hype. Just control.",
+const STEPS = [
+  "This is every AI chat. It only knows what you type, so the answer could be for anyone.",
+  "Chat apps do have memory now. But it's thin, hidden, and lives in their app, not with you.",
+  "So you hand it a folder about you. Plain files: your work, your people, how you like things done.",
+  "Same question, and now it knows you. Every file you add makes the answers sharper.",
+  "That's the secret. A workspace your AI reads before it answers. Let's build yours.",
 ];
+const LAST = STEPS.length - 1;
+
+const GENERIC_REPLY = "Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Remember to take breaks…";
+const PERSONAL_REPLY =
+  "Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries, ready for your yes.";
 
 const USECASES = ["Plans your week", "Drafts in your voice", "Handles the repeat work"];
+const FILES = ["me.md", "work / current.md", "boundaries.md"];
 
-/** stage: 0 chat+generic · 1 forgets caption · 2 files dock in · 3 personal reply · 4 CTA */
+/** steps: 0 generic chat · 1 memory truth · 2 folder docks, chat slides left · 3 personal reply · 4 CTA */
 export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
   const [beat, setBeat] = useState<1 | 2 | 3>(1);
   const [leaving, setLeaving] = useState(false);
-  const [stage, setStage] = useState(0);
+  const [step, setStep] = useState(0);
+  const [phase, setPhase] = useState<"send" | "typing" | "reply">("send");
+  const [chars, setChars] = useState(0);
+  const instant = useRef(false);
   const theme = dark ? "dark" : "light";
   const reduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+  const mode: "generic" | "personal" = step >= 3 ? "personal" : "generic";
+  const replyText = mode === "personal" ? PERSONAL_REPLY : GENERIC_REPLY;
 
   function advance(next: () => void) {
     setLeaving(true);
@@ -30,28 +42,55 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
     }, 380);
   }
 
+  function goTo(n: number) {
+    const target = Math.max(0, Math.min(LAST, n));
+    if (target === step) return;
+    instant.current = target < step;
+    setStep(target);
+  }
+
   // beat 2 auto-dissolves into the explainer
   useEffect(() => {
     if (beat !== 2) return;
-    const t = setTimeout(() => advance(() => setBeat(3)), reduced ? 400 : 2600);
+    const t = setTimeout(() => advance(() => setBeat(3)), reduced ? 400 : 3000);
     return () => clearTimeout(t);
   }, [beat, reduced]);
 
-  // beat 3 stage machine
+  // chat playback: replays whenever the conversation changes (skipped when stepping back)
   useEffect(() => {
     if (beat !== 3) return;
-    if (reduced) {
-      setStage(4);
+    if (reduced || instant.current) {
+      instant.current = false;
+      setPhase("reply");
+      setChars(replyText.length);
       return;
     }
-    const timers = [
-      setTimeout(() => setStage(1), 3400),
-      setTimeout(() => setStage(2), 6800),
-      setTimeout(() => setStage(3), 10200),
-      setTimeout(() => setStage(4), 13400),
-    ];
-    return () => timers.forEach(clearTimeout);
-  }, [beat, reduced]);
+    setPhase("send");
+    setChars(0);
+    const t1 = setTimeout(() => setPhase("typing"), 650);
+    const t2 = setTimeout(() => setPhase("reply"), 1800);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [beat, mode]);
+
+  // the reply streams in like a real assistant typing
+  useEffect(() => {
+    if (phase !== "reply" || reduced) return;
+    const id = setInterval(() => {
+      setChars((c) => {
+        if (c >= replyText.length) {
+          clearInterval(id);
+          return c;
+        }
+        return c + 2;
+      });
+    }, 22);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, mode]);
 
   if (beat === 1) {
     return (
@@ -67,7 +106,7 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
           <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
             <button className="btn-primary" onClick={() => advance(() => setBeat(2))}>
               Here's the secret
-              <Arrow />
+              <Chevron />
             </button>
           </BorderBeam>
         </div>
@@ -88,43 +127,48 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
       <div className="explain-card intro-line">
         <div className="explain-visual">
           <div className="mini-chat">
-            <p className="mini-chat-title">{stage < 2 ? "A normal chat" : "The same chat, with your files"}</p>
+            <p className="mini-chat-title">{step < 2 ? "A normal chat" : "The same chat, with your files"}</p>
             <div className="bubble-area">
-              <div className="bubble user">Plan my week</div>
-              {stage < 3 ? (
-                <div className="bubble ai muted-bubble" key="generic">
-                  Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Remember to take breaks…
-                </div>
-              ) : (
-                <div className="bubble ai personal-bubble" key="personal">
-                  Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries,
-                  ready for your yes.
+              <div className="bubble user" key={`sent-${mode}`}>
+                Plan my week
+              </div>
+              {phase === "typing" && (
+                <div className="bubble ai typing" aria-label="The assistant is typing">
+                  <span />
+                  <span />
+                  <span />
                 </div>
               )}
-              {stage === 1 && <p className="chat-reset">its memory of you lives in their app, not with you</p>}
+              {phase === "reply" && (
+                <div className={`bubble ai ${mode === "personal" ? "personal-bubble" : "muted-bubble"}`} key={`reply-${mode}`}>
+                  {replyText.slice(0, chars)}
+                </div>
+              )}
+              {step === 1 && <p className="chat-reset">you can't open it, edit it, or take it with you</p>}
             </div>
           </div>
 
-          <div className={`mini-folder${stage >= 2 ? " docked" : ""}`} aria-hidden={stage < 2}>
+          <span className={`beamline${step >= 2 ? " on" : ""}`} aria-hidden="true" />
+
+          <div className={`mini-folder${step >= 2 ? " docked" : ""}`} aria-hidden={step < 2}>
             <p className="mini-folder-title">
               <FolderIcon /> your workspace
             </p>
-            {["me.md", "work / current.md", "boundaries.md"].map((f, i) => (
-              <span className="mini-file" style={{ animationDelay: `${0.15 * i + 0.1}s` }} key={f}>
+            {FILES.map((f, i) => (
+              <span className="mini-file" style={{ animationDelay: `${0.15 * i + 0.25}s` }} key={f}>
                 {f}
               </span>
             ))}
-            <span className="beamline" />
           </div>
         </div>
 
         <div className="explain-captions" aria-live="polite">
-          <p className="explain-caption" key={Math.min(stage, CAPTIONS.length - 1)}>
-            {CAPTIONS[Math.min(stage, CAPTIONS.length - 1)]}
+          <p className="explain-caption" key={step}>
+            {STEPS[step]}
           </p>
         </div>
 
-        <div className={`usecase-row${stage >= 3 ? " shown" : ""}`} aria-hidden={stage < 3}>
+        <div className={`usecase-row${step >= 3 ? " shown" : ""}`} aria-hidden={step < 3}>
           {USECASES.map((u) => (
             <span className="usecase-pill" key={u}>
               {u}
@@ -133,30 +177,40 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
         </div>
 
         <div className="cta-slot">
-          {stage >= 4 ? (
+          {step === LAST && (
             <div className="intro-line">
               <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
                 <button className="btn-primary" onClick={() => advance(onDone)}>
                   Create your personal OS
-                  <Arrow />
+                  <Chevron />
                 </button>
               </BorderBeam>
             </div>
-          ) : (
-            <button className="btn-skip" onClick={() => setStage(4)}>
-              Skip
-            </button>
           )}
+        </div>
+
+        <div className="explain-nav">
+          <button className="nav-arrow" onClick={() => goTo(step - 1)} disabled={step === 0} aria-label="Back">
+            <Chevron left />
+          </button>
+          <div className="nav-dots">
+            {STEPS.map((_, i) => (
+              <button key={i} className={`nav-dot${i === step ? " on" : ""}`} onClick={() => goTo(i)} aria-label={`Step ${i + 1} of ${STEPS.length}`} />
+            ))}
+          </div>
+          <button className="nav-arrow" onClick={() => goTo(step + 1)} disabled={step === LAST} aria-label="Next">
+            <Chevron />
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-function Arrow() {
+function Chevron({ left }: { left?: boolean }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" />
+      {left ? <path d="M15 6l-6 6 6 6" /> : <path d="M9 6l6 6-6 6" />}
     </svg>
   );
 }
