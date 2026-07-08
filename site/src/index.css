@@ -898,18 +898,18 @@ h1.intro-line {
 
 .explain-card {
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 28px 32px 24px;
+  padding: 28px 32px 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  text-align: left;
+  gap: 16px;
 }
 
 .explain-visual {
+  text-align: left;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   gap: 18px;
@@ -924,7 +924,15 @@ h1.intro-line {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 168px;
+  height: 196px;
+}
+
+.bubble-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
 }
 
 .mini-chat-title {
@@ -943,7 +951,7 @@ h1.intro-line {
   font-size: 13px;
   line-height: 1.55;
   max-width: 92%;
-  animation: reveal 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadein 700ms ease;
 }
 
 .bubble.user {
@@ -977,7 +985,8 @@ h1.intro-line {
 
 .mini-folder {
   position: relative;
-  border: 1px dashed var(--border);
+  height: 196px;
+  border: 1px dashed var(--border-soft);
   border-radius: 12px;
   padding: 14px 16px;
   display: flex;
@@ -1039,31 +1048,47 @@ h1.intro-line {
 }
 
 .explain-captions {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-height: 88px;
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 
 .explain-caption {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text);
-  text-wrap: pretty;
-  animation: reveal 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-wrap: balance;
+  max-width: 560px;
+  animation: reveal 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.explain-caption.dimmed {
+.usecase-row {
+  min-height: 34px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.usecase-row.shown {
+  opacity: 1;
+}
+
+.usecase-pill {
+  font-size: 12.5px;
   color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  padding: 6px 14px;
 }
 
-.explain-cta {
-  align-self: center;
-  padding-top: 4px;
-}
-
-.explain-skip {
-  align-self: flex-end;
+.cta-slot {
+  min-height: 58px;
+  display: grid;
+  place-items: center;
 }
 
 @media (max-width: 700px) {

@@ -6,10 +6,13 @@ const DELAYS = ["0s", "1.1s", "2.4s"];
 
 const CAPTIONS = [
   "A normal chat only knows what you type into it.",
-  "Close it, and it forgets you.",
-  "Now hand it a few files about your world.",
-  "It reads them first. Same AI, suddenly yours.",
+  "Chat apps do have memory now. But it's thin, hidden, and belongs to their app.",
+  "This is a second brain you own. Plain files your AI reads before it answers.",
+  "Save how you think, and it compounds. The repeat work becomes something you hand off.",
+  "No hype. Just control.",
 ];
+
+const USECASES = ["Plans your week", "Drafts in your voice", "Handles the repeat work"];
 
 /** stage: 0 chat+generic · 1 forgets caption · 2 files dock in · 3 personal reply · 4 CTA */
 export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
@@ -42,10 +45,10 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
       return;
     }
     const timers = [
-      setTimeout(() => setStage(1), 2600),
-      setTimeout(() => setStage(2), 4600),
-      setTimeout(() => setStage(3), 6000),
-      setTimeout(() => setStage(4), 8000),
+      setTimeout(() => setStage(1), 3400),
+      setTimeout(() => setStage(2), 6800),
+      setTimeout(() => setStage(3), 10200),
+      setTimeout(() => setStage(4), 13400),
     ];
     return () => timers.forEach(clearTimeout);
   }, [beat, reduced]);
@@ -86,18 +89,20 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
         <div className="explain-visual">
           <div className="mini-chat">
             <p className="mini-chat-title">{stage < 2 ? "A normal chat" : "The same chat, with your files"}</p>
-            <div className="bubble user">Plan my week</div>
-            {stage < 3 ? (
-              <div className="bubble ai muted-bubble">
-                Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Remember to take breaks…
-              </div>
-            ) : (
-              <div className="bubble ai personal-bubble">
-                Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries,
-                ready for your yes.
-              </div>
-            )}
-            {stage === 1 && <p className="chat-reset">chat closed… memory gone</p>}
+            <div className="bubble-area">
+              <div className="bubble user">Plan my week</div>
+              {stage < 3 ? (
+                <div className="bubble ai muted-bubble" key="generic">
+                  Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Remember to take breaks…
+                </div>
+              ) : (
+                <div className="bubble ai personal-bubble" key="personal">
+                  Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries,
+                  ready for your yes.
+                </div>
+              )}
+              {stage === 1 && <p className="chat-reset">its memory of you lives in their app, not with you</p>}
+            </div>
           </div>
 
           <div className={`mini-folder${stage >= 2 ? " docked" : ""}`} aria-hidden={stage < 2}>
@@ -114,30 +119,35 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
         </div>
 
         <div className="explain-captions" aria-live="polite">
-          {CAPTIONS.map((c, i) => {
-            const visible = (i === 0 && stage >= 0) || (i === 1 && stage >= 1) || (i === 2 && stage >= 2) || (i === 3 && stage >= 3);
-            return visible ? (
-              <p className={`explain-caption${(i === 1 && stage >= 2) || (i === 0 && stage >= 2) ? " dimmed" : ""}`} key={i}>
-                {c}
-              </p>
-            ) : null;
-          })}
+          <p className="explain-caption" key={Math.min(stage, CAPTIONS.length - 1)}>
+            {CAPTIONS[Math.min(stage, CAPTIONS.length - 1)]}
+          </p>
         </div>
 
-        {stage >= 4 ? (
-          <div className="explain-cta intro-line">
-            <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
-              <button className="btn-primary" onClick={() => advance(onDone)}>
-                Create your personal OS
-                <Arrow />
-              </button>
-            </BorderBeam>
-          </div>
-        ) : (
-          <button className="btn-skip explain-skip" onClick={() => setStage(4)}>
-            Skip
-          </button>
-        )}
+        <div className={`usecase-row${stage >= 3 ? " shown" : ""}`} aria-hidden={stage < 3}>
+          {USECASES.map((u) => (
+            <span className="usecase-pill" key={u}>
+              {u}
+            </span>
+          ))}
+        </div>
+
+        <div className="cta-slot">
+          {stage >= 4 ? (
+            <div className="intro-line">
+              <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
+                <button className="btn-primary" onClick={() => advance(onDone)}>
+                  Create your personal OS
+                  <Arrow />
+                </button>
+              </BorderBeam>
+            </div>
+          ) : (
+            <button className="btn-skip" onClick={() => setStage(4)}>
+              Skip
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
