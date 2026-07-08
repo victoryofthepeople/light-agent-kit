@@ -295,12 +295,12 @@ h1.intro-line {
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
-  transform: translateY(-1px);
   background:
     linear-gradient(100deg, rgba(28, 18, 16, 0.94), rgba(10, 11, 17, 0.96) 24%, rgba(10, 11, 16, 0.96) 76%, rgba(20, 16, 30, 0.94)) padding-box,
     conic-gradient(from calc(var(--ventari-orbit, 0deg) + 315deg), rgba(255, 184, 126, 0.92) 0%, rgba(255, 184, 126, 0.92) 24%, rgba(245, 139, 212, 0.88) 42%, rgba(166, 134, 255, 0.94) 62%, rgba(120, 232, 255, 0.8) 82%, rgba(255, 184, 126, 0.92) 100%) border-box;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.36), 0 0 20px rgba(255, 177, 116, 0.14), 0 0 22px rgba(245, 139, 212, 0.12),
-    0 0 20px rgba(120, 232, 255, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.36), 0 0 34px rgba(255, 177, 116, 0.2), 0 0 38px rgba(245, 139, 212, 0.17),
+    0 0 34px rgba(120, 232, 255, 0.13), inset 14px 0 24px rgba(255, 177, 116, 0.12), inset -14px 0 24px rgba(120, 232, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .btn-primary:focus-visible {
@@ -340,11 +340,11 @@ h1.intro-line {
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  transform: translateY(-1px);
   background:
     linear-gradient(135deg, rgba(9, 11, 23, 0.93), rgba(5, 15, 21, 0.95) 62%, rgba(4, 18, 18, 0.93)) padding-box,
     conic-gradient(from calc(var(--ventari-orbit, 0deg) + 315deg), rgba(157, 124, 255, 0.54) 0%, rgba(157, 124, 255, 0.54) 26%, rgba(120, 232, 255, 0.78) 52%, rgba(190, 210, 255, 0.64) 78%, rgba(157, 124, 255, 0.54) 100%) border-box;
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.36), 0 0 18px rgba(120, 232, 255, 0.1), 0 0 20px rgba(157, 124, 255, 0.08),
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.36), 0 0 30px rgba(120, 232, 255, 0.15), 0 0 32px rgba(157, 124, 255, 0.12),
+    inset 12px 0 22px rgba(157, 124, 255, 0.08), inset -12px 0 22px rgba(120, 232, 255, 0.07),
     inset 0 1px 0 rgba(190, 215, 255, 0.16), inset 0 -1px 0 rgba(120, 232, 255, 0.07);
 }
 
