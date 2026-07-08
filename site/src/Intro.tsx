@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { BorderBeam } from "border-beam";
 
 const BEAT1 = ["AI is moving fast.", "It can be overwhelming.", "You're not behind."];
 const DELAYS = ["0s", "1.1s", "2.4s"];
 
 const STEPS = [
-  "This is every AI chat. It only knows what you type, so the answer could be for anyone.",
+  "This is every AI chat. It can't see your life, so it gives you the same answer it gives everyone else.",
   "Chat apps do have memory now. But it's thin, hidden, and lives in their app, not with you.",
-  "So you hand it a folder about you. Plain files: your work, your people, how you like things done.",
-  "Same question, and now it knows you. Every file you add makes the answers sharper.",
-  "That's the secret. A workspace your AI reads before it answers. Let's build yours.",
+  "The level up: hand it a folder. Folders inside folders, filled with files, a map of your world your AI can actually navigate.",
+  "That's how people work in platforms like Claude Cowork, Claude Code, Codex, Cursor, etc. The key difference is those services can read and write files. So you can give them organized context via folders and files.",
+  "Same question, and now it knows you.\nEvery file you add makes the answers sharper.",
+  "That's what we build together, right now: your first file structure. Your thinking, turned into files your AI reads before every answer. Yours to customize, grow, and connect new tools to.",
 ];
 const LAST = STEPS.length - 1;
 
@@ -18,9 +19,9 @@ const PERSONAL_REPLY =
   "Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries, ready for your yes.";
 
 const USECASES = ["Plans your week", "Drafts in your voice", "Handles the repeat work"];
-const FILES = ["me.md", "work / current.md", "boundaries.md"];
+const FILES = ["me.md", "work / current.md", "boundaries.md", "projects/"];
 
-/** steps: 0 generic chat · 1 memory truth · 2 folder docks, chat slides left · 3 personal reply · 4 CTA */
+/** steps: 0 generic chat · 1 memory truth · 2 folder docks · 3 how people work · 4 personal reply + pills · 5 CTA */
 export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
   const [beat, setBeat] = useState<1 | 2 | 3>(1);
   const [leaving, setLeaving] = useState(false);
@@ -28,10 +29,12 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
   const [phase, setPhase] = useState<"send" | "typing" | "reply">("send");
   const [chars, setChars] = useState(0);
   const instant = useRef(false);
+  const capRef = useRef<HTMLDivElement>(null);
+  const [capH, setCapH] = useState<number | undefined>(undefined);
   const theme = dark ? "dark" : "light";
   const reduced = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-  const mode: "generic" | "personal" = step >= 3 ? "personal" : "generic";
+  const mode: "generic" | "personal" = step >= 4 ? "personal" : "generic";
   const replyText = mode === "personal" ? PERSONAL_REPLY : GENERIC_REPLY;
 
   function advance(next: () => void) {
@@ -48,6 +51,14 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
     instant.current = target < step;
     setStep(target);
   }
+
+  // the caption container animates to the new caption's measured height (no card dip)
+  useLayoutEffect(() => {
+    const measure = () => setCapH(capRef.current?.offsetHeight);
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [step]);
 
   // beat 2 auto-dissolves into the explainer
   useEffect(() => {
@@ -92,6 +103,43 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, mode]);
 
+  // beat 1: Enter reveals the secret
+  useEffect(() => {
+    if (beat !== 1) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+      if (e.key === "Enter") {
+        e.preventDefault();
+        advance(() => setBeat(2));
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [beat]);
+
+  // beat 3: arrow keys and Enter step through the deck
+  useEffect(() => {
+    if (beat !== 3) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goTo(step + 1);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goTo(step - 1);
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        if (step === LAST) advance(onDone);
+        else goTo(step + 1);
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [beat, step]);
+
   if (beat === 1) {
     return (
       <div className={`intro${leaving ? " leaving" : ""}`}>
@@ -127,7 +175,7 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
       <div className="explain-card intro-line">
         <div className="explain-visual">
           <div className="mini-chat">
-            <p className="mini-chat-title">{step < 2 ? "A normal chat" : "The same chat, with your files"}</p>
+            <p className="mini-chat-title">{mode === "personal" ? "The same chat, with your files" : "A normal chat"}</p>
             <div className="bubble-area">
               <div className="bubble user" key={`sent-${mode}`}>
                 Plan my week
@@ -144,7 +192,6 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
                   {replyText.slice(0, chars)}
                 </div>
               )}
-              {step === 1 && <p className="chat-reset">you can't open it, edit it, or take it with you</p>}
             </div>
           </div>
 
@@ -162,31 +209,48 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
           </div>
         </div>
 
-        <div className="explain-captions" aria-live="polite">
-          <p className="explain-caption" key={step}>
-            {STEPS[step]}
-          </p>
+        <div className="explain-captions" aria-live="polite" style={capH !== undefined ? { height: capH } : undefined}>
+          <div className="explain-caption-measure" ref={capRef}>
+            <p className="explain-caption" key={step}>
+              {STEPS[step].includes("\n")
+                ? STEPS[step].split("\n").map((line, i) => (
+                    <span key={i}>
+                      {i > 0 && <br />}
+                      {line}
+                    </span>
+                  ))
+                : STEPS[step]}
+            </p>
+          </div>
         </div>
 
-        <div className={`usecase-row${step >= 3 ? " shown" : ""}`} aria-hidden={step < 3}>
-          {USECASES.map((u) => (
-            <span className="usecase-pill" key={u}>
-              {u}
-            </span>
-          ))}
-        </div>
-
-        <div className="cta-slot">
-          {step === LAST && (
-            <div className="intro-line">
-              <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
-                <button className="btn-primary" onClick={() => advance(onDone)}>
-                  Create your personal OS
-                  <Chevron />
-                </button>
-              </BorderBeam>
+        <div className={`reveal-slot${step >= 4 ? " open" : ""}`}>
+          <div>
+            <div className={`usecase-row${step >= 4 ? " shown" : ""}`} aria-hidden={step < 4}>
+              {USECASES.map((u) => (
+                <span className="usecase-pill" key={u}>
+                  {u}
+                </span>
+              ))}
             </div>
-          )}
+          </div>
+        </div>
+
+        <div className={`reveal-slot${step === LAST ? " open" : ""}`}>
+          <div>
+            <div className="cta-slot">
+              {step === LAST && (
+                <div className="intro-line">
+                  <BorderBeam colorVariant="colorful" strength={1} brightness={1.15} saturation={1.25} duration={3.4} theme={theme} className="cta-beam">
+                    <button className="btn-primary" onClick={() => advance(onDone)}>
+                      Create your personal OS
+                      <Chevron />
+                    </button>
+                  </BorderBeam>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="explain-nav">

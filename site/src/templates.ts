@@ -1,4 +1,4 @@
-import { ROOM_LABEL, TONE_CHIPS, type RouteKey } from "./questions";
+import { ROOM_LABEL, type RouteKey } from "./questions";
 
 export type Answers = Record<string, string | string[]>;
 
@@ -38,9 +38,20 @@ const list = (a: Answers, id: string): string[] => {
   return Array.isArray(v) ? v : [];
 };
 
-export function getRoute(a: Answers): RouteKey | null {
-  const r = first(a, "route");
-  return r === "work" || r === "life" || r === "project" || r === "ideas" ? r : null;
+/** One workspace, one home. The deep room is fixed; every other room still ships. */
+export function getRoute(): RouteKey {
+  return "work";
+}
+
+/** Joins tone selections into a natural fragment: first as-is, later ones lowercased. */
+function joinTone(items: string[]): string {
+  return items
+    .filter((s) => s && s.trim())
+    .map((s, i) => {
+      const t = s.trim();
+      return i === 0 ? t : t.charAt(0).toLowerCase() + t.slice(1);
+    })
+    .join(", ");
 }
 
 const ROOM_TITLES: Record<RouteKey, [string, string, string, string]> = {
@@ -71,20 +82,22 @@ function packageRooms(route: RouteKey): string[] {
 export function buildFiles(a: Answers, mode: "preview" | "download" = "download"): GeneratedFile[] {
   const preview = mode === "preview";
   const name = first(a, "name") || "My";
-  const route = getRoute(a) ?? "ideas";
+  const route = getRoute();
   const room = ROOM_LABEL[route];
   const rooms = packageRooms(route);
   const days = first(a, "days");
   const boundariesAnswered = a["boundaries"] !== undefined;
   const boundaries = list(a, "boundaries");
   const extraBoundary = first(a, "boundaries-extra");
-  const toneValue = first(a, "tone");
-  const tone = TONE_CHIPS.find((t) => t.value === toneValue)?.value;
+  const toneRaw = a["tone"];
+  const toneList = Array.isArray(toneRaw) ? toneRaw : typeof toneRaw === "string" && toneRaw.trim() ? [toneRaw] : [];
+  const tone = joinTone(toneList);
   const dump = first(a, "dump");
   const r1 = first(a, "room1");
   const r2 = first(a, "room2");
   const r3 = first(a, "room3");
   const r4 = first(a, "room4");
+  const roomStarted = Boolean(r1 || r2 || r3 || r4);
   const [t1, t2, t3, t4] = ROOM_TITLES[route];
 
   const stamp = `Last updated: ${today()}`;
@@ -138,22 +151,21 @@ When it gets something wrong, say so plainly. Good setups turn corrections into 
 
   // --- home.md: appears once there's a name; rows appear as they're earned ---
   if (!preview || first(a, "name")) {
-    const routeChosen = getRoute(a) !== null;
     const mapRows = [
       `| Who I am${tone ? " and how to talk to me" : ""} | \`me.md\` |`,
       ...(boundariesAnswered || !preview ? ["| What needs a yes before acting | `boundaries.md` |"] : []),
-      ...(routeChosen || !preview ? rooms.slice(0, preview ? 1 : 3).map((rm) => `| ${ROOM_PURPOSE[rm].split(":")[0]} | \`${rm}/\` |`) : []),
+      ...(roomStarted || !preview ? rooms.slice(0, preview ? 1 : 3).map((rm) => `| ${ROOM_PURPOSE[rm].split(":")[0]} | \`${rm}/\` |`) : []),
       ...(dump || !preview ? ["| New unsorted thoughts | `inbox.md` |"] : []),
     ];
     const roomsBlock =
-      routeChosen || !preview
+      roomStarted || !preview
         ? preview
-          ? `\n## Rooms\n- \`${room}/\` is where we're going deep today.\n`
+          ? `\n## Rooms\n- \`${room}/\` is where the most detail lives.\n`
           : `\n## Rooms\n${rooms.map((rm) => `- \`${rm}/\`${rm === room ? " (the most detail so far)" : ""}: ${ROOM_PURPOSE[rm].split(": ")[1]}`).join("\n")}\n`
         : "";
     files.push({
       path: "home.md",
-      touchedBy: ["name", "route"],
+      touchedBy: ["name", "room1"],
       content: `# ${name}'s workspace
 
 ${stamp}

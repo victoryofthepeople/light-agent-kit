@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { GeneratedFile } from "./templates";
 import { Markdown } from "./Markdown";
 
-export function FilePanel({ files, folderName, activeIds, showEducation }: { files: GeneratedFile[]; folderName: string; activeIds: string[]; showEducation: boolean }) {
+export function FilePanel({ files, title, activeIds, showEducation }: { files: GeneratedFile[]; title: string; activeIds: string[]; showEducation: boolean }) {
   const activeFile = useMemo(() => {
     const hit = files.find((f) => f.touchedBy.some((id) => activeIds.includes(id)));
     return hit ?? files[files.length - 1];
@@ -32,7 +32,7 @@ export function FilePanel({ files, folderName, activeIds, showEducation }: { fil
         <span className="folder-icon" aria-hidden="true">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
         </span>
-        <span className="filepanel-name">{folderName}</span>
+        <span className="filepanel-name">{title}</span>
         <span className="lockline">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="11" width="18" height="11" rx="2" />

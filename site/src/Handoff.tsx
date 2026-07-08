@@ -20,16 +20,16 @@ const TARGETS: { key: Target; label: string; what: string; steps: string[]; link
   },
   {
     key: "projects",
-    label: "claude.ai Projects",
+    label: "Claude Projects",
     what: "A Project is a space on claude.ai that remembers files you give it. Works in any browser.",
-    steps: ["Unzip your download.", "On claude.ai, create a Project and upload the files as knowledge.", "Start a chat in the Project and paste the first ask below.", "It can't edit files here — it hands you updated copies to save."],
+    steps: ["Unzip your download.", "On claude.ai, create a Project and upload the files as knowledge.", "Start a chat in the Project and paste the first ask below.", "It can't edit files here. It hands you updated copies to save."],
     link: { href: "https://claude.ai", label: "Open claude.ai" },
   },
   {
     key: "chatgpt",
     label: "ChatGPT",
     what: "Works too. Same folder, different assistant.",
-    steps: ["Unzip your download.", "Start a chat and attach the files (or paste them).", "Paste the first ask below.", "It can't edit files here — it hands you updated copies to save."],
+    steps: ["Unzip your download.", "Start a chat and attach the files (or paste them).", "Paste the first ask below.", "It can't edit files here. It hands you updated copies to save."],
     link: { href: "https://chatgpt.com", label: "Open ChatGPT" },
   },
 ];
@@ -76,7 +76,7 @@ export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderN
       </button>
 
       <p className="handoff-label">Where's your AI?</p>
-      <div className="chips" role="radiogroup" aria-label="Pick your AI">
+      <div className="chips handoff-targets" role="radiogroup" aria-label="Pick your AI">
         {TARGETS.map((x) => (
           <button key={x.key} role="radio" aria-checked={target === x.key} className={`chip${target === x.key ? " selected" : ""}`} onClick={() => setTarget(x.key)}>
             {x.label}

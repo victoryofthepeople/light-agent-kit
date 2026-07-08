@@ -1,4 +1,4 @@
-/** Obsidian-style rendered view of the generated markdown — no raw syntax on screen. */
+/** Obsidian-style rendered view of the generated markdown, no raw syntax on screen. */
 export function Markdown({ text }: { text: string }) {
   const lines = text.split("\n");
   const out: React.ReactNode[] = [];
