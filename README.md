@@ -6,7 +6,7 @@ Give your AI agent the context to actually work for you.
 
 The product is live at [nicosullivan.com/lightagentkit](https://nicosullivan.com/lightagentkit).
 
-Answer a short interview in the browser, then download a starter workspace folder. No account, no cloud AI — your answers stay on your device until you hand the folder to your own AI tool (Claude Cowork, Claude Code, Codex, Cursor, or a chat).
+Answer a short interview in the browser, then download a starter workspace folder. Completely free tool! No account needed to create your personal OS folder. Your answers stay on your device until you hand the folder to your own AI tool (Claude Cowork, Claude Code, Codex, Cursor, etc.).
 
 ### Run it yourself
 
@@ -89,7 +89,7 @@ Also read [AGENTS.md](AGENTS.md), [CAPABILITIES.md](CAPABILITIES.md), and [PRIVA
 
 ## Ownership and privacy
 
-Your real workspace lives in the folder you downloaded — not in this public repo.
+Your real workspace lives in the folder you downloaded. This public repo is just a template.
 
 Public-safe here: the site, templates, examples, skills, guides. Private: your answers, daily logs, client details, keys, and tokens.
 
