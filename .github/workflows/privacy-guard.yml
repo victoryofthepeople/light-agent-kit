@@ -16,10 +16,11 @@ jobs:
           leaks=$(git ls-files | grep -E "$FORBIDDEN" || true)
           if [ -n "$leaks" ]; then echo "::error::Private paths tracked:"; echo "$leaks"; exit 1; fi
 
-      - name: No claude-mem contamination in public instruction files
+      - name: No private memory contamination
         run: |
-          if grep -l "claude-mem-context" AGENTS.md CLAUDE.md 2>/dev/null; then
-            echo "::error::claude-mem private memory block found in a public instruction file"; exit 1
+          hits=$(git grep -n -E 'claude-mem-context|\$CMEM|get_observations\(|mem-search skill|Access [0-9,]+[kK]? tokens of past work|# Memory Context' -- . ':!.github/workflows/privacy-guard.yml' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Private model memory context found:"; echo "$hits"; exit 1
           fi
 
       - name: No secret patterns

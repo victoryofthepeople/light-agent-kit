@@ -2,29 +2,29 @@
 
 Claude is useful when you want a conversational assistant to help you think, plan, write, and organize files.
 
-## Agent-First Setup
+## Setup
 
-1. Open Claude or Claude Code.
-2. Paste the Light Agent Kit GitHub repo link.
-3. Say: `Onboard me with Light Agent Kit.`
-4. Let Claude read the repo, ask one question at a time, and build your private workspace as you answer.
+1. Build your workspace with the guided setup site in [`site/`](../site/).
+2. Unzip the download and open the folder in **Claude Cowork** or **Claude Code**.
+3. Say hi. Claude reads `START-HERE.md` in your folder and takes it from there.
 
-Claude Code can read `CLAUDE.md`, which imports `AGENTS.md` and adds Claude-specific guidance.
+Claude Code can also read this repo's [EXPAND.md](../EXPAND.md) when you want to grow the workspace.
 
-## Fallback Request
+## Grow the workspace
+
+Give Claude this GitHub repo and say:
 
 ```text
-[paste the Light Agent Kit repo link]
-
-Onboard me with Light Agent Kit.
-Ask one question at a time.
-Build my private workspace as we go.
-Run capability discovery.
-End by doing one useful thing.
+Read EXPAND.md. Look at my workspace files.
+Suggest one useful thing I could add from templates/ or skills/.
 ```
 
-## Safety Notes
+## Claude Projects (chat-only)
+
+Upload your workspace files as project knowledge. Claude can read and organize in chat, but cannot edit files directly. It will hand you replacement file contents to save.
+
+## Safety notes
 
 - Share only the context you want Claude to see.
-- Keep private files local or in a private workspace.
-- Use fictional examples in anything public.
+- Keep private files in your downloaded workspace, not in this public repo.
+- `boundaries.md` in your workspace is the approval source of truth.

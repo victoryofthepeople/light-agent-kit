@@ -37,26 +37,13 @@ const TEACHING: Record<string, string> = {
   name: "There it is. Your first file. Everything you share becomes readable text like this.",
   room1: "home.md just got a map: which file to read for which job. It's why your AI won't get lost.",
   boundaries: "These rules ride along in every session. Your AI asks first, every time.",
-  dump: "Your AI's first job will be organizing all of that. You never have to.",
+  dump: "Your brain dump lands in today's daily log. Your AI organizes it from there. You never have to open a file.",
 };
 
 function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12l5 5 9-11" />
-    </svg>
-  );
-}
-
-function SunIcon({ dark }: { dark: boolean }) {
-  return dark ? (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4" />
-    </svg>
-  ) : (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
     </svg>
   );
 }
@@ -82,8 +69,16 @@ export default function App() {
   const [dark, setDark] = useState<boolean>(() => window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? true);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = dark ? "dark" : "light";
-  }, [dark]);
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const apply = () => {
+      const isDark = mq.matches;
+      setDark(isDark);
+      document.documentElement.dataset.theme = isDark ? "dark" : "light";
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
 
   useEffect(() => {
     store.set({ phase, qi, answers });
@@ -121,16 +116,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="topbar">
-        {phase !== "intro" && (
-        <div className="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Setup progress">
-          <div className="progress-fill" style={{ width: `${progress}%` }} />
-        </div>
-        )}
-        <button className="icon-btn" onClick={() => setDark(!dark)} aria-label="Toggle light or dark mode">
-          <SunIcon dark={dark} />
-        </button>
-      </header>
+      {phase !== "intro" && (
+        <header className="topbar">
+          <div className="progress" role="progressbar" aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100} aria-label="Setup progress">
+            <div className="progress-fill" style={{ width: `${progress}%` }} />
+          </div>
+        </header>
+      )}
 
       {phase === "intro" && <Intro dark={dark} onDone={() => setPhase("interview")} />}
 
@@ -278,7 +270,6 @@ export default function App() {
 
       {phase !== "intro" && (
       <footer className="foot">
-        <span>Everything stays on this device. No account, no cookies, no analytics.</span>
         <span className="foot-right">
           <a href="https://github.com/victoryofthepeople/light-agent-kit" target="_blank" rel="noreferrer">
             Open source

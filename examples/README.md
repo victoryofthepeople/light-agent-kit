@@ -1,19 +1,25 @@
 # Examples
 
-These examples are fictional.
+Fictional workspaces that show what **growth** looks like after the starter setup.
 
-They show what a Light Agent Kit workspace can look like after onboarding. Use them as a shape, then write your own private version.
+Use them to explain shapes your AI can help you move toward — not as day-one files to copy.
 
-The knowledge examples show both simple notes and the stronger source -> brief -> concept flow.
+## Best starting points
 
-The power map example shows how a user can see future agent capabilities without turning everything on at once. The capability dashboard example shows all three maps condensed to one glance.
+- [first-session-walkthrough.md](first-session-walkthrough.md) — brain dump in, organized week out, correction becomes a lesson
+- [onboarding-sample.md](onboarding-sample.md) — tone and shape of a good first working session
+- [connected-workspace/](connected-workspace/) — stronger setup with phone capture, calendar awareness, scheduled reviews
 
-The connected workspace example shows a fictional stronger setup with phone capture, read-only calendar awareness, scheduled reviews, and clear yes rules.
+## Deeper shapes
 
-The `home.md` example shows the first page a user should see after onboarding.
+- [home.md](home.md) — expanded front page after growth
+- [profile/](profile/) — full profile and capability maps
+- [projects/example-project.md](projects/example-project.md) — project context
+- [knowledge/](knowledge/) — simple notes and source-backed research
+- [power/](power/) — activation cards before connecting new powers
 
-The `onboarding-sample.md` example shows the tone and shape of a good first setup conversation.
+## Legacy
 
-The `first-session-walkthrough.md` example shows a full first working session: a messy brain dump in, an organized week out, and a correction saved as a lesson.
+- [legacy-agent-onboarding.md](legacy-agent-onboarding.md) — the old paste-the-repo interview flow (archived, not default)
 
-The `power/` examples show how new powers become concrete before anything is connected.
+Point your AI at [EXPAND.md](../EXPAND.md) to browse these based on what you actually need.

@@ -4,16 +4,16 @@ The first week is about proving usefulness before adding more tools.
 
 ## Day 1: Build The Map
 
-Confirm these exist (your assistant built them during onboarding):
+Confirm these exist (from the guided setup, or added since):
 
-- `profile/me.md`
-- `profile/goals.md`
-- `profile/preferences.md`
-- `profile/capability-map.md`
-- `profile/power-map.md`
-- `profile/permission-map.md`
-- `tasks/active.md`
-- `tasks/lessons.md`
+- `home.md`
+- `me.md`
+- `boundaries.md`
+- `tasks.md` or `tasks/active.md`
+- today's file in `daily/`
+- your active room (`work/`, `life/`, `project/`, or `notes/`)
+
+Optional if you've grown the workspace: `profile/goals.md`, capability maps, `tasks/lessons.md`.
 
 First useful action:
 

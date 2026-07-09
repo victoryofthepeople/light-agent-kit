@@ -1,73 +1,51 @@
 # Start Here
 
-Use this page when you want an AI agent to set up Light Agent Kit with you.
+## Humans
 
-## Agent Instruction
+If you do not have a workspace yet, use the **guided setup site** in [`site/`](site/) — not this file.
 
-If you are an AI agent reading this because a user pasted the Light Agent Kit repo link, start onboarding. Ask one question at a time, build the private workspace as you go, run capability discovery, and finish with one useful action.
-
-## Fast Start
-
-Paste the GitHub link into your AI agent and say:
-
-```text
-Onboard me with Light Agent Kit.
+```bash
+cd site && npm install && npm run dev
 ```
 
-That should be enough for a capable file-editing agent. The repo tells it what to read, what to build, what to ask, and how to keep your private workspace separate from the public kit.
+Download your folder, unzip it, open it with your AI tool. Come back to this repo when you want to grow it.
 
-## If The Agent Needs More Direction
+## AI Agents
 
-Use this shorter fallback:
+### If the user has a workspace folder
+
+They finished the guided setup. Help them **inside their folder**, not by rebuilding from this repo.
+
+1. Read their `home.md`, `me.md`, `boundaries.md`, active room, and today's `daily/` file.
+2. Read [EXPAND.md](EXPAND.md) in this repo.
+3. Suggest **one** useful addition based on real friction — a template, skill, guide, or power from the expansion library.
+4. Ask before creating files. Update their `home.md` when you add something.
+
+### If the user pasted this repo with no workspace
+
+Do not run a full onboarding from templates. Send them to the setup site first. See [EXPAND.md](EXPAND.md) Step 1.
+
+### If the user wants to explore what is possible
 
 ```text
-Use this repo as Light Agent Kit.
-Read START-HERE.md first.
-Onboard me one question at a time.
-Build my private workspace as we go.
-End by doing one useful thing.
+Read EXPAND.md in the Light Agent Kit repo.
+Look at my workspace files.
+Suggest one thing from templates/, skills/, or examples/ that would help me most right now.
+Explain the useful result in plain language before adding anything.
 ```
 
-## Full Fallback Prompt
+## What this repo is
 
-Use this only if the agent does not infer the setup from the repo:
+| Not this | This |
+|---|---|
+| The onboarding product | The expansion library |
+| A pile of files to copy on day one | Deeper structure to add when useful |
+| "Paste and say onboard me" | "I have a workspace — help me grow it" |
 
-```text
-Onboard me with Light Agent Kit.
+## Quick reference
 
-Create my private workspace as we talk.
-Ask one question at a time.
-Build the files as I answer.
-Use skills/workspace-builder.md if you can edit files.
-Run capability discovery.
-Create home.md, profile files, task files, capability map, power map,
-permission map, private workspace README, and useful skills for my first use case.
-Keep the public kit unchanged.
-
-End by doing one useful thing for me today and refreshing home.md.
-```
-
-## What The Agent Should Build
-
-- `home.md`: the current front page of your workspace.
-- `README.md`: the private workspace guide.
-- `profile/`: who you are, goals, preferences, taste, standards, capabilities, power, permissions.
-- `tasks/`: active work, completed work, and lessons from corrections.
-- `daily/`: dated notes if a daily rhythm helps.
-- `projects/`: deeper context for work, business, clients, or ideas.
-- `knowledge/`: reusable notes and source-backed research when useful.
-- `power/`: activation cards for new app access, messaging, scheduled work, or runtimes.
-- `skills/`: repeatable workflows the agent can run.
-
-## What To Expect
-
-The agent should begin by learning what you are trying to do, build the workspace around that, and explain app access or integrations only when they help the next useful result. It should feel like setup that produces work, not a quiz.
-
-## Good First Uses
-
-- Organize a messy brain dump.
-- Map one project.
-- Build a clear weekly plan.
-- Turn corrections into assistant lessons.
-- Create a research note.
-- Choose the next power to activate.
+- [EXPAND.md](EXPAND.md) — how to grow a workspace
+- [templates/TEMPLATE-CATALOG.md](templates/TEMPLATE-CATALOG.md) — what you can add
+- [skills/](skills/) — repeatable workflows
+- [examples/](examples/) — shapes that worked
+- [legacy agent onboarding](examples/legacy-agent-onboarding.md) — archived, not default

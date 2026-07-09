@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# Light Agent Kit — Setup Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The guided onboarding app. This is the main product.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Walks a user through ~10 questions in the browser
+- Builds a starter workspace folder live in a side panel
+- Downloads a zip — no server, no accounts, no cloud AI
+- Hands off to Claude Cowork, Claude Code, Codex, ChatGPT, etc.
 
-## React Compiler
+## Run locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Open the URL shown (usually `http://localhost:5173`).
+
+## Build for production
+
+```bash
+npm run build
+npm run preview
+```
+
+Output goes to `dist/`.
+
+## Key source files
+
+| File | Role |
+|---|---|
+| `src/App.tsx` | Flow orchestration (intro → interview → handoff) |
+| `src/Intro.tsx` | Opening explainer |
+| `src/questions.ts` | Question definitions |
+| `src/templates.ts` | Answers → Markdown files |
+| `src/FilePanel.tsx` | Live workspace preview |
+| `src/Handoff.tsx` | Download zip + AI tool picker |
+| `src/index.css` | Visual design |
+
+## After the download
+
+The user's workspace is self-contained. To grow it, they give their AI the parent repo link and read `EXPAND.md` at the repo root.
+
+## Stack
+
+React 19, TypeScript, Vite 8.

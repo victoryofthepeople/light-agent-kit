@@ -4,24 +4,23 @@ Codex is useful when you want an AI assistant to read and edit files in a local 
 
 ## Setup
 
-1. Open the repo in Codex, or paste the GitHub link into a Codex session that can read repos.
-2. Say: `Onboard me with Light Agent Kit.`
-3. Let Codex read the repo, ask one question at a time, and build your private workspace as you answer.
+1. Build your workspace with the guided setup site in [`site/`](../site/).
+2. Unzip the download.
+3. In the terminal: `cd` into the folder, then run `codex` (or your Codex workflow).
+4. Say hi. Codex reads `START-HERE.md` in your folder and takes it from there.
 
-## Fallback Request
+## Grow the workspace
+
+Open this repo alongside your workspace, or paste the GitHub link, and say:
 
 ```text
-[paste the Light Agent Kit repo link]
-
-Onboard me with Light Agent Kit.
-Build my private workspace as we go.
-Use skills/workspace-builder.md if you can edit files.
-Run capability discovery and end by doing one useful thing.
+Read EXPAND.md. Look at my workspace files.
+Suggest one useful thing I could add from templates/ or skills/.
 ```
 
-## Safety Notes
+## Safety notes
 
-- Keep real personal files in a private folder or private repo.
-- Use the privacy checklist before publishing anything.
+- Keep real personal files in your downloaded workspace folder.
+- Use [PRIVACY-CHECKLIST.md](../PRIVACY-CHECKLIST.md) before publishing anything.
 - Ask Codex to explain file changes before large edits.
-- Keep clear yes rules in `profile/permission-map.md`.
+- Keep clear yes rules in `boundaries.md`.

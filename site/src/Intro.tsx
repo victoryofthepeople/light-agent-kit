@@ -5,10 +5,10 @@ const BEAT1 = ["AI is moving fast.", "It can be overwhelming.", "You're not behi
 const DELAYS = ["0s", "1.1s", "2.4s"];
 
 const STEPS = [
-  "This is every AI chat. It can't see your life, so it gives you the same answer it gives everyone else.",
-  "Chat apps do have memory now. But it's thin, hidden, and lives in their app, not with you.",
+  "This is every AI chat. It doesn't have the fullest picture of you, so its output is more generic.",
+  "Chat apps have memory, but it's thin, hidden, and lives in their app, not with you.",
   "The level up: hand it a folder. Folders inside folders, filled with files, a map of your world your AI can actually navigate.",
-  "That's how people work in platforms like Claude Cowork, Claude Code, Codex, Cursor, etc. The key difference is those services can read and write files. So you can give them organized context via folders and files.",
+  "That's how people work in platforms like Claude Cowork, Claude Code, Codex, Cursor, etc. Those tools can read and write files, so your AI can use organized folders as context.",
   "Same question, and now it knows you.\nEvery file you add makes the answers sharper.",
   "That's what we build together, right now: your first file structure. Your thinking, turned into files your AI reads before every answer. Yours to customize, grow, and connect new tools to.",
 ];
@@ -18,8 +18,8 @@ const GENERIC_REPLY = "Sure! 1. Make a to-do list 2. Prioritize your tasks 3. Re
 const PERSONAL_REPLY =
   "Sarah + Tom's gallery is due Friday, so start there. Then the two unpaid invoices. I drafted replies to your 14 inquiries, ready for your yes.";
 
-const USECASES = ["Plans your week", "Drafts in your voice", "Handles the repeat work"];
-const FILES = ["me.md", "work / current.md", "boundaries.md", "projects/"];
+const USECASES = ["Plans your week", "Drafts in your voice", "Repeat work"];
+const FILES = ["me.md", "work/current.md", "boundaries.md", "tasks.md"];
 
 /** steps: 0 generic chat · 1 memory truth · 2 folder docks · 3 how people work · 4 personal reply + pills · 5 CTA */
 export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
@@ -173,7 +173,7 @@ export function Intro({ onDone, dark }: { onDone: () => void; dark: boolean }) {
   return (
     <div className={`intro intro-explain${leaving ? " leaving" : ""}`}>
       <div className="explain-card intro-line">
-        <div className="explain-visual">
+        <div className={`explain-visual${step >= 2 ? " connected" : ""}`}>
           <div className="mini-chat">
             <p className="mini-chat-title">{mode === "personal" ? "The same chat, with your files" : "A normal chat"}</p>
             <div className="bubble-area">

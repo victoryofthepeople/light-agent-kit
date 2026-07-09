@@ -33,12 +33,19 @@ export function FilePanel({ files, title, activeIds, showEducation }: { files: G
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
         </span>
         <span className="filepanel-name">{title}</span>
-        <span className="lockline">
+        <span className="lockline" tabIndex={0} aria-describedby="lockline-tip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="11" width="18" height="11" rx="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
           Your answers stay with you
+          <span id="lockline-tip" className="lockline-tip" role="tooltip">
+            Everything stays on your device.
+            <br />
+            No data is saved by this website.
+            <br />
+            Once you're done, you'll get a folder you can download.
+          </span>
         </span>
       </div>
 

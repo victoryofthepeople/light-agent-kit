@@ -2,24 +2,29 @@
 
 ## Purpose
 
-Create the user's private Light Agent Kit workspace from the kit without mixing public templates, private notes, and build notes.
+Build a full Light Agent Kit workspace from templates when the guided setup site is not an option.
 
-Use this when the assistant can edit files directly.
+**Default path:** the user should use the site in `site/` first. This skill is for manual or legacy setup only.
+
+Use this when the assistant can edit files directly and the user explicitly cannot use the web setup.
 
 ## Use When
 
-- The user says "install Light Agent Kit," "set this up," "onboard me," or "build my workspace."
+- The user cannot use the guided setup site and needs a workspace built by hand.
+- The user already has a starter workspace and wants to migrate to the full kit shape.
 - The agent is running in Codex, Claude Code, or another file-editing runtime.
-- The user wants a private workspace instead of chat-only drafts.
+
+Do **not** use when the user has no workspace yet and can use the site — send them to `site/` instead.
 
 ## Read First
 
-- `START-HERE.md`
-- `ONBOARDING.md`
+- `EXPAND.md`
 - `templates/TEMPLATE-CATALOG.md`
 - `templates/workspace-readme.md`
 - `PRIVACY-CHECKLIST.md`
 - `AGENTS.md`
+
+For the archived full interview flow, see `examples/legacy-agent-onboarding.md`.
 
 ## Steps
 

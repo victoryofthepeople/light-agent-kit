@@ -1,22 +1,33 @@
 # Skills
 
-Skills are the assistant's standing operating procedures.
+Repeatable workflows the assistant runs inside your workspace.
 
-They are written in plain Markdown so you can read, trust, and edit them. The assistant runs a skill when its trigger fits, and you can also invoke one by name. They stay portable: the same skill works in chat today and as a tool-specific command on a stronger runtime later.
+The guided setup gives you a starter folder. **Skills are for ongoing work** — and for growth when you copy them into your private workspace from this repo.
 
-## Skills
+## Core growth skills
 
-- [capability-discovery.md](capability-discovery.md): map real friction to live capabilities, future powers, approval rules, and the workspace front page.
-- [workspace-builder.md](workspace-builder.md): create the private Light Agent Kit workspace cleanly from the kit templates.
-- [home-refresh.md](home-refresh.md): keep `home.md` useful as the first visible workspace page.
-- [power-activation.md](power-activation.md): turn on new capabilities with value, access, approval, and off-switch clear.
-- [runtime-export.md](runtime-export.md): carry kit context into Claude, Codex, Hermes, OpenClaw, or another runtime.
-- [vault-bridge.md](vault-bridge.md): connect the kit to another vault, repo, client folder, or business brain as a source of truth.
-- [skill-builder.md](skill-builder.md): turn repeated work into a readable workflow the assistant can run again.
-- [morning-brief.md](morning-brief.md): start the day with focus.
-- [evening-planning.md](evening-planning.md): close the day and carry forward open loops.
-- [brain-dump-organizer.md](brain-dump-organizer.md): turn messy thoughts into files and actions.
-- [lessons-updater.md](lessons-updater.md): turn corrections into durable assistant behavior.
-- [research-helper.md](research-helper.md): gather useful information without losing the thread.
-- [project-scout.md](project-scout.md): check a project and suggest next moves.
-- [assistant-checkup.md](assistant-checkup.md): review whether the assistant is set up safely and usefully.
+- [capability-discovery.md](capability-discovery.md) — map friction to live capabilities, future powers, and approval rules
+- [home-refresh.md](home-refresh.md) — keep `home.md` useful as the front page
+- [power-activation.md](power-activation.md) — turn on new capabilities with value, access, approval, and off-switch clear
+- [brain-dump-organizer.md](brain-dump-organizer.md) — turn messy thoughts into files and actions
+- [lessons-updater.md](lessons-updater.md) — turn corrections into durable behavior
+
+## Daily rhythm skills
+
+- [morning-brief.md](morning-brief.md) — start the day with focus
+- [evening-planning.md](evening-planning.md) — close the day and carry forward open loops
+
+## When you need more structure
+
+- [project-scout.md](project-scout.md) — check a project and suggest next moves
+- [research-helper.md](research-helper.md) — gather useful information without losing the thread
+- [skill-builder.md](skill-builder.md) — turn repeated work into a readable workflow
+- [assistant-checkup.md](assistant-checkup.md) — review whether the setup is safe and useful
+- [runtime-export.md](runtime-export.md) — carry context into Claude, Codex, Hermes, OpenClaw, or another runtime
+- [vault-bridge.md](vault-bridge.md) — connect to another vault, repo, or business brain
+
+## Legacy / manual setup
+
+- [workspace-builder.md](workspace-builder.md) — build a full kit workspace by hand without the guided site. Use only when the site is not an option.
+
+Read [EXPAND.md](../EXPAND.md) for when to suggest each skill.

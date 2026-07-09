@@ -1,45 +1,32 @@
 # Templates
 
-These are blank workspace files for your private Light Agent Kit workspace.
+Expansion files for a Light Agent Kit workspace.
 
-Copy the files you need, then fill them in with your assistant during onboarding.
+The guided setup site builds a small starter folder (`home.md`, `me.md`, `boundaries.md`, rooms, `daily/`). **These templates are for when that starter is not enough.**
 
-If you want a README inside the private workspace, copy `workspace-readme.md` and rename it to `README.md`.
+Copy what you need into your private workspace. Ask your AI to help — point it at [EXPAND.md](../EXPAND.md) in this repo.
 
-## Start With These
+## Start with these (if missing from your workspace)
 
-- `home.md`
-- `workspace-readme.md` as `README.md` in the private workspace
-- `profile/me.md`
-- `profile/goals.md`
-- `profile/preferences.md`
-- `profile/taste-and-standards.md`
-- `profile/capability-map.md`
-- `profile/power-map.md`
-- `profile/permission-map.md`
-- `profile/capability-dashboard.md`
-- `tasks/active.md`
-- `tasks/done.md`
-- `tasks/lessons.md`
-- `daily/daily-template.md`
+Most starters already have `home.md` and `me.md`. Add when useful:
 
-## Add When Useful
+- `profile/goals.md` — what you are working toward
+- `profile/preferences.md` — how you want the assistant to work and talk
+- `profile/taste-and-standards.md` — what good work looks like
+- `profile/capability-map.md`, `power-map.md`, `permission-map.md` — what is live, what is next, what needs a yes
+- `tasks/done.md`, `tasks/lessons.md` — if you outgrow a single `tasks.md`
+
+## Add when useful
 
 - `projects/project-template.md`
-- `knowledge/index.md`
-- `knowledge/knowledge-note-template.md`
-- `knowledge/wiki-index.md`
-- `knowledge/source-template.md`
-- `knowledge/brief-template.md`
-- `knowledge/concept-template.md`
-- `knowledge/research-log.md`
-- `power/power-activation-card.md`
-- `ideas/inbox.md`
+- `knowledge/` templates — notes, sources, briefs, concepts
+- `power/power-activation-card.md` — before turning on a stronger power
+- `ideas/inbox.md` — if `notes/` is not enough
 
-## Growth Rule
+## Growth rule
 
 Start with what helps now. Add folders when the agent needs more context, a better workflow, or clearer permission.
 
 Use `knowledge-note-template.md` for simple notes.
 
-Use the source, brief, concept, and research-log templates when research needs provenance and ongoing updates.
+Use the source, brief, concept, and research-log templates when research needs provenance.

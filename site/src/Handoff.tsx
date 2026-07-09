@@ -2,44 +2,18 @@ import { useState } from "react";
 import JSZip from "jszip";
 import type { GeneratedFile } from "./templates";
 
-type Target = "cowork" | "code" | "projects" | "chatgpt";
+type Panel = "none" | "use" | "others";
 
-const TARGETS: { key: Target; label: string; what: string; steps: string[]; link?: { href: string; label: string } }[] = [
-  {
-    key: "cowork",
-    label: "Claude Cowork",
-    what: "Claude's desktop app working inside a folder. No terminal, no code. The easiest full experience.",
-    steps: ["Unzip your download. You'll get one folder.", "Open the Claude desktop app and start a Cowork session in that folder.", "Paste the first ask below."],
-    link: { href: "https://claude.ai/download", label: "Get the Claude app" },
-  },
-  {
-    key: "code",
-    label: "Claude Code",
-    what: "Claude in your terminal, reading and editing files directly. The most powerful path, and it's two commands.",
-    steps: ["Unzip your download.", "In the terminal: cd into the folder, then type claude", "Paste the first ask below."],
-  },
-  {
-    key: "projects",
-    label: "Claude Projects",
-    what: "A Project is a space on claude.ai that remembers files you give it. Works in any browser.",
-    steps: ["Unzip your download.", "On claude.ai, create a Project and upload the files as knowledge.", "Start a chat in the Project and paste the first ask below.", "It can't edit files here. It hands you updated copies to save."],
-    link: { href: "https://claude.ai", label: "Open claude.ai" },
-  },
-  {
-    key: "chatgpt",
-    label: "ChatGPT",
-    what: "Works too. Same folder, different assistant.",
-    steps: ["Unzip your download.", "Start a chat and attach the files (or paste them).", "Paste the first ask below.", "It can't edit files here. It hands you updated copies to save."],
-    link: { href: "https://chatgpt.com", label: "Open ChatGPT" },
-  },
+const OTHER_OPTIONS: { name: string; blurb: string }[] = [
+  { name: "Codex", blurb: "OpenAI's desktop coding agent. Open the folder and chat." },
+  { name: "Cursor", blurb: "An AI code editor. Open the folder as a project." },
+  { name: "Claude Code", blurb: "Claude's coding agent — in the terminal or the desktop app. Point it at the folder." },
+  { name: "VS Code", blurb: "With Copilot or another agent extension that can edit files." },
+  { name: "LM Studio", blurb: "Run a local model on your computer. Point it at the folder for private, offline use." },
 ];
 
-const FIRST_ASK = "Read START-HERE.md, introduce yourself, and organize my inbox.";
-
 export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderName: string }) {
-  const [target, setTarget] = useState<Target>("cowork");
-  const [copied, setCopied] = useState(false);
-  const t = TARGETS.find((x) => x.key === target)!;
+  const [open, setOpen] = useState<Panel>("none");
 
   async function download() {
     const zip = new JSZip();
@@ -53,61 +27,85 @@ export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderN
     URL.revokeObjectURL(url);
   }
 
-  async function copyAsk() {
-    try {
-      await navigator.clipboard.writeText(FIRST_ASK);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1600);
-    } catch {
-      /* text remains visible to copy manually */
-    }
-  }
-
   return (
     <section className="card handoff">
-      <p className="qcount">Done</p>
-      <h2 className="qprompt">Your workspace is ready.</h2>
-      <p className="qhint">
-        {files.length} files, written from your own words. From here, your chosen AI receives only the files you hand it.
-      </p>
+      <div className="handoff-top">
+        <p className="qcount">Done</p>
+        <h2 className="qprompt">Your workspace is ready.</h2>
+        <p className="qhint">
+          {files.length} files, written from your own words. Download the folder, then open it in a tool that can read and write files.
+        </p>
 
-      <button className="btn-primary wide" onClick={download}>
-        Download {folderName}.zip
-      </button>
-
-      <p className="handoff-label">Where's your AI?</p>
-      <div className="chips handoff-targets" role="radiogroup" aria-label="Pick your AI">
-        {TARGETS.map((x) => (
-          <button key={x.key} role="radio" aria-checked={target === x.key} className={`chip${target === x.key ? " selected" : ""}`} onClick={() => setTarget(x.key)}>
-            {x.label}
-          </button>
-        ))}
+        <button className="btn-primary wide" onClick={download}>
+          Download {folderName}.zip
+        </button>
       </div>
-      <p className="handoff-what">
-        {t.what}
-        {t.link && (
-          <>
-            {" "}
-            <a href={t.link.href} target="_blank" rel="noreferrer">
-              {t.link.label} ↗
-            </a>
-          </>
-        )}
-      </p>
-      <ol className="steps">
-        {t.steps.map((s, i) => (
-          <li key={i}>{s}</li>
-        ))}
-      </ol>
 
-      <div className="firstask">
-        <div className="firstask-row">
-          <code>{FIRST_ASK}</code>
-          <button className="btn-secondary" onClick={copyAsk}>
-            {copied ? "Copied ✓" : "Copy"}
-          </button>
+      {open === "none" && (
+        <p className="handoff-grow">
+          This is a starting point, not a finished system. Keep talking with your AI and it will grow the folder with you — ideas, lessons, daily notes, and more.
+          <br />
+          <br />
+          Later you can add skills: short, repeatable prompts for things you do often, so the AI runs the same workflow the same way every time.
+        </p>
+      )}
+
+      {open === "use" && (
+        <div className="handoff-primary">
+          <p className="handoff-what">
+            Claude Cowork — the simplest path.
+            <br />
+            Desktop app, no terminal, works inside your folder.
+            <br />
+            <a href="https://claude.ai/download" target="_blank" rel="noreferrer">
+              Get the Claude app ↗
+            </a>
+          </p>
+          <ol className="steps">
+            <li>Unzip your download. You'll get one folder.</li>
+            <li>Open the Claude desktop app and start a Cowork session in that folder.</li>
+            <li>Say hi. It reads START-HERE.md and takes it from there.</li>
+          </ol>
+          <p className="handoff-moment">Just talk. Your assistant logs the day, keeps tasks current, and remembers what matters.</p>
         </div>
-        <p className="handoff-moment">Watch it organize your brain dump. That's the moment it stops being a folder and starts being yours.</p>
+      )}
+
+      {open === "others" && (
+        <ul className="handoff-options">
+          {OTHER_OPTIONS.map((o) => (
+            <li key={o.name}>
+              <strong>{o.name}</strong> — {o.blurb}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div className="handoff-foot">
+        <button
+          type="button"
+          className="handoff-toggle"
+          aria-expanded={open === "use"}
+          onClick={() => setOpen((cur) => (cur === "use" ? "none" : "use"))}
+        >
+          <span>What to use</span>
+          <svg className={`handoff-chevron${open === "use" ? " open" : ""}`} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </button>
+
+        {open !== "none" && (
+          <button
+            type="button"
+            className="handoff-toggle"
+            aria-expanded={open === "others"}
+            onClick={() => setOpen((cur) => (cur === "others" ? "use" : "others"))}
+          >
+            <span>{open === "others" ? "Back to Claude Cowork" : "Other options"}</span>
+            <svg className={`handoff-chevron${open === "others" ? " open" : ""}`} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        )}
       </div>
     </section>
   );

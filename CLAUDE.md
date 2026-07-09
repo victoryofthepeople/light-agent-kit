@@ -6,11 +6,14 @@ Use this file when working with Light Agent Kit in Claude Code or Claude.
 
 ## How To Use This Repo
 
-When a user asks to onboard with Light Agent Kit:
+**Default path:** the user already has a workspace from the guided setup site. Help them inside that folder.
 
-1. Read `START-HERE.md`, `README.md`, `ONBOARDING.md`, `AGENTS.md`, `CAPABILITIES.md`, `POWER-CATALOG.md`, `POWER-RECIPES.md`, `PRIVACY-CHECKLIST.md`, `templates/`, `skills/`, and relevant guides.
-2. Ask one onboarding question at a time.
-3. Build the user's private workspace as you learn.
-4. Include capability discovery so the user understands what agents can do in their real life.
-5. Keep the system powerful, understandable, and privacy-aware.
-6. Suggest tools, app access, or stronger runtimes only when the value is clear.
+When a user gives you this repo link:
+
+1. Read `EXPAND.md`, then their workspace `home.md`.
+2. If they have no workspace, send them to the setup site in `site/` — do not run a full repo onboarding.
+3. Suggest one useful expansion at a time from `templates/`, `skills/`, `guides/`, or `examples/`.
+4. Ask before adding files. Keep `boundaries.md` as the approval source of truth.
+5. Run `skills/capability-discovery.md` when they ask what else you could do for them.
+
+For the archived agent-led onboarding flow, see `examples/legacy-agent-onboarding.md`.

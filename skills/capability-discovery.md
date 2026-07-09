@@ -12,26 +12,25 @@ This is the skill that turns Light Agent Kit from a set of files into an assista
 
 ## Use When
 
-- During onboarding, at the capability discovery step.
-- The user asks "what can you actually do for me?"
+- The user asks "what can you actually do for me?" or wants to grow their setup.
+- After the starter workspace has been in use for a few days.
 - The user's work, tools, or goals change.
-- It has been a while and the maps look stale during an assistant checkup.
+- Capability maps look stale during an assistant checkup.
+
+During first-time setup, the guided site handles basics. Run this when **growth** is the goal.
 
 ## Read First
 
-- `profile/me.md`
-- `profile/goals.md`
-- `profile/preferences.md`
-- `profile/taste-and-standards.md`
-- `profile/capability-map.md`
-- `profile/power-map.md`
-- `profile/permission-map.md`
+- `me.md` or `profile/me.md`
+- `boundaries.md`
 - `home.md`
+- `tasks.md` or `tasks/active.md`
+- `profile/goals.md`, `profile/preferences.md`, `profile/taste-and-standards.md` when they exist
+- `profile/capability-map.md`, `profile/power-map.md`, `profile/permission-map.md` when they exist
 - `POWER-CATALOG.md`
 - `POWER-RECIPES.md`
 - `templates/power/power-activation-card.md`
-- `tasks/active.md`
-- `projects/`
+- `projects/` when it exists
 
 ## Steps
 
