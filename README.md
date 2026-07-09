@@ -4,9 +4,19 @@ Give your AI agent the context to actually work for you.
 
 ## Start here
 
-**The product is the guided setup site** in [`site/`](site/).
+The product is live at [nicosullivan.com/lightagentkit](https://nicosullivan.com/lightagentkit).
 
-It walks you through a short interview in the browser and builds a starter workspace folder you download as a zip. No account, no cloud AI — your answers stay on your device until you hand the folder to your own AI tool.
+Answer a short interview in the browser, then download a starter workspace folder. No account, no cloud AI — your answers stay on your device until you hand the folder to your own AI tool (Claude Cowork, Claude Code, Codex, Cursor, or a chat).
+
+### Run it yourself
+
+This repo is the open source version of that site. Clone it to see exactly how the interview works, self-host it, or modify it.
+
+    cd site
+    npm install
+    npm run dev
+
+Open the local URL (usually `http://localhost:5173`) to use the same interview locally.
 
 ```bash
 cd site
