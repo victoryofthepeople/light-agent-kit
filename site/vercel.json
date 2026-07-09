@@ -1,0 +1,14 @@
+{
+  "buildCommand": "LAK_BASE_PATH=/light-agent-kit/ npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/light-agent-kit",
+      "destination": "/"
+    },
+    {
+      "source": "/light-agent-kit/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}
