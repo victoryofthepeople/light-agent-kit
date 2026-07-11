@@ -1,14 +1,37 @@
 {
-  "buildCommand": "LAK_BASE_PATH=/light-agent-kit/ npm run build",
+  "buildCommand": "LAK_BASE_PATH=/lightagentkit/ npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    {
-      "source": "/light-agent-kit",
-      "destination": "/"
-    },
+  "redirects": [
     {
       "source": "/light-agent-kit/:path*",
+      "destination": "/lightagentkit/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/lightagentkit/:path*",
       "destination": "/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/lightagentkit/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/lightagentkit/fonts/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     }
   ]
 }

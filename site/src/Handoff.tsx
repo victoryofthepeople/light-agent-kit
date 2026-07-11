@@ -1,5 +1,4 @@
 import { useState } from "react";
-import JSZip from "jszip";
 import type { GeneratedFile } from "./templates";
 
 type Panel = "none" | "use" | "others";
@@ -16,6 +15,7 @@ export function Handoff({ files, folderName }: { files: GeneratedFile[]; folderN
   const [open, setOpen] = useState<Panel>("none");
 
   async function download() {
+    const { default: JSZip } = await import("jszip");
     const zip = new JSZip();
     for (const f of files) zip.file(`${folderName}/${f.path}`, f.content);
     const blob = await zip.generateAsync({ type: "blob" });
