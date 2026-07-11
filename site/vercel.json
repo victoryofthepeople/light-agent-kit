@@ -3,6 +3,16 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/lightagentkit/",
+      "destination": "/lightagentkit",
+      "permanent": true
+    },
+    {
+      "source": "/light-agent-kit",
+      "destination": "/lightagentkit",
+      "permanent": true
+    },
+    {
       "source": "/light-agent-kit/:path*",
       "destination": "/lightagentkit/:path*",
       "permanent": true
